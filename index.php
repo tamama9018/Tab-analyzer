@@ -9,57 +9,57 @@
     <table>
       <th></th>
       <tr>
-        <input type="radio" name="string1" value="no-choice" checked>
-        <input type="radio" name="string1" value="1E">
-        <input type="radio" name="string1" value="1F">
-        <input type="radio" name="string1" value="1F#">
-        <input type="radio" name="string1" value="1G">
-        <input type="radio" name="string1" value="1G#">
+        <input type="radio" name="string1" value="" checked>
+        <input type="radio" name="string1" value="4">
+        <input type="radio" name="string1" value="5">
+        <input type="radio" name="string1" value="6">
+        <input type="radio" name="string1" value="7">
+        <input type="radio" name="string1" value="8">
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string2" value="no-choice" checked>
-        <input type="radio" name="string2" value="2B">
-        <input type="radio" name="string2" value="2C">
-        <input type="radio" name="string2" value="2C#">
-        <input type="radio" name="string2" value="2D">
-        <input type="radio" name="string2" value="2D#">
+        <input type="radio" name="string2" value="" checked>
+        <input type="radio" name="string2" value="11">
+        <input type="radio" name="string2" value="0">
+        <input type="radio" name="string2" value="1">
+        <input type="radio" name="string2" value="2">
+        <input type="radio" name="string2" value="3">
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string3" value="no-choice" checked>
-        <input type="radio" name="string3" value="3G">
-        <input type="radio" name="string3" value="3G#">
-        <input type="radio" name="string3" value="3A">
-        <input type="radio" name="string3" value="3A#">
-        <input type="radio" name="string3" value="3B">
+        <input type="radio" name="string3" value="" checked>
+        <input type="radio" name="string3" value="7">
+        <input type="radio" name="string3" value="8">
+        <input type="radio" name="string3" value="9">
+        <input type="radio" name="string3" value="10">
+        <input type="radio" name="string3" value="11">
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string4" value="no-choice" checked>
-        <input type="radio" name="string4" value="4D">
-        <input type="radio" name="string4" value="4D#">
-        <input type="radio" name="string4" value="4E">
-        <input type="radio" name="string4" value="4F">
-        <input type="radio" name="string4" value="4F#">
+        <input type="radio" name="string4" value="" checked>
+        <input type="radio" name="string4" value="2">
+        <input type="radio" name="string4" value="3">
+        <input type="radio" name="string4" value="4">
+        <input type="radio" name="string4" value="5">
+        <input type="radio" name="string4" value="6">
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string5" value="no-choice" checked>
-        <input type="radio" name="string5" value="5A">
-        <input type="radio" name="string5" value="5A#">
-        <input type="radio" name="string5" value="5B">
-        <input type="radio" name="string5" value="5C">
-        <input type="radio" name="string5" value="5C#">
+        <input type="radio" name="string5" value="" checked>
+        <input type="radio" name="string5" value="9">
+        <input type="radio" name="string5" value="10">
+        <input type="radio" name="string5" value="11">
+        <input type="radio" name="string5" value="0">
+        <input type="radio" name="string5" value="1">
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string6" value="no-choice" checked>
-        <input type="radio" name="string6" value="6E">
-        <input type="radio" name="string6" value="6F">
-        <input type="radio" name="string6" value="6F#">
-        <input type="radio" name="string6" value="6G">
-        <input type="radio" name="string6" value="6G#">
+        <input type="radio" name="string6" value="" checked>
+        <input type="radio" name="string6" value="4">
+        <input type="radio" name="string6" value="5">
+        <input type="radio" name="string6" value="6">
+        <input type="radio" name="string6" value="7">
+        <input type="radio" name="string6" value="8">
       </tr>
     </table>
     <input type="submit" name="" value="Search">
