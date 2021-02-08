@@ -7,7 +7,9 @@ def four_code(keys):
     top  = keys[2]
     add  = keys[3]
 
-    ## tention code 
+    ##################
+    ## tention code ##
+    ##################
     root_codename = three_code(keys[:3])
     
     if type(root_codename) is str:
@@ -44,16 +46,23 @@ def four_code(keys):
 
 
 
-    ## root code
+    ###############
+    ## root code ##
+    ###############
+    
+    
     root_codename = three_code(keys[1:])
 
     if type(root_codename) is str:
         return f'{number_to_char(root)}/{root_codename}'
 
-    ## 
 
+
+    ###############
+    ## omit code ##
+    ###############
     
-
+    
 
     return keys
 
