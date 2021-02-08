@@ -6,4 +6,5 @@ if __name__ == "__main__":
 
     keys = [*sys.argv[1:]]
     keys = [int(key) for key in keys]
+    
     print(codemaker(keys))
