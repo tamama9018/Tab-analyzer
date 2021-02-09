@@ -9,7 +9,7 @@
     <table>
       <th></th>
       <tr>
-        <input type="radio" name="string1" value="" checked>
+        <input type="radio" name="string1" value="100" checked>
         <input type="radio" name="string1" value="4">
         <input type="radio" name="string1" value="5">
         <input type="radio" name="string1" value="6">
@@ -18,7 +18,7 @@
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string2" value="" checked>
+        <input type="radio" name="string2" value="101" checked>
         <input type="radio" name="string2" value="11">
         <input type="radio" name="string2" value="0">
         <input type="radio" name="string2" value="1">
@@ -27,7 +27,7 @@
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string3" value="" checked>
+        <input type="radio" name="string3" value="102" checked>
         <input type="radio" name="string3" value="7">
         <input type="radio" name="string3" value="8">
         <input type="radio" name="string3" value="9">
@@ -36,7 +36,7 @@
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string4" value="" checked>
+        <input type="radio" name="string4" value="103" checked>
         <input type="radio" name="string4" value="2">
         <input type="radio" name="string4" value="3">
         <input type="radio" name="string4" value="4">
@@ -45,7 +45,7 @@
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string5" value="" checked>
+        <input type="radio" name="string5" value="104" checked>
         <input type="radio" name="string5" value="9">
         <input type="radio" name="string5" value="10">
         <input type="radio" name="string5" value="11">
@@ -54,7 +54,7 @@
       </tr>
       <br>
       <tr>
-        <input type="radio" name="string6" value="" checked>
+        <input type="radio" name="string6" value="105" checked>
         <input type="radio" name="string6" value="4">
         <input type="radio" name="string6" value="5">
         <input type="radio" name="string6" value="6">
@@ -64,5 +64,6 @@
     </table>
     <input type="submit" name="" value="Search">
     </form>
+
   </body>
 </html>
