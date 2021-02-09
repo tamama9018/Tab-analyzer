@@ -1,3 +1,6 @@
+from deco import func_expander
+
+@func_expander
 def code_rename(code):
 
     code = code.replace('46', '4(6)')
