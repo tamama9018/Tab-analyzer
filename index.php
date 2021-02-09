@@ -87,7 +87,7 @@
     $r =implode($space,$result);
 
 
-       $command = "python \MAMP\htdocs\php7\src\main.py ${r}";
+       $command = "python \src\main.py ${r}";
        putenv("PYTHONUTF8=1");
        exec($command, $output);
        foreach ($output as $o) {
