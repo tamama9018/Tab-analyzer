@@ -4,6 +4,7 @@ from five_code import five_code
 from rotate import rotate
 from code_rename import code_rename
 
+
 def codemaker(keys):
 
     keys = [key % 12 for key in keys]
@@ -36,7 +37,8 @@ def codemaker(keys):
                 codenames += [codename]
 
     codenames = sorted(list(set(codenames)))
-    codenames = [code_rename(codename) for codename in codenames]
+    codenames = code_rename(codenames)
+
     return codenames
 
 
