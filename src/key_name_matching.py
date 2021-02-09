@@ -1,4 +1,7 @@
 def number_to_char(key):
+
+    key = key%12
+    
     if   key == 0:
         return 'C'
     elif key == 1:
