@@ -24,15 +24,11 @@
     $target = $strings;
     $result = array_diff($target, array('100','101','102','103','104','105'));
     $result = array_values($result);
+    $space = " ";
 
-   foreach ($result as $value) {
-     // code...
-    $v =  $value;
-   }
-var_dump($v);
-echo $v;
-
-       $command = "python \MAMP\htdocs\php7\src\main.py ${v}";
+    $r =implode($space,$result);
+  
+       $command = "python \MAMP\htdocs\php7\src\main.py ${r}";
        exec($command, $output);
        foreach ($output as $o) {
          // code...
