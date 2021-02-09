@@ -5,7 +5,7 @@
     <title>Tab-analyzer</title>
   </head>
   <body>
-    <form class="neck" action="check.php" method="post">
+    <form class="neck" action="" method="post">
     <table>
       <th></th>
       <tr>
@@ -64,6 +64,37 @@
     </table>
     <input type="submit" name="" value="Search">
     </form>
+    <?php
+    $string1 = $_POST['string1'];
+    $string2 = $_POST['string2'];
+    $string3 = $_POST['string3'];
+    $string4 = $_POST['string4'];
+    $string5 = $_POST['string5'];
+    $string6 = $_POST['string6'];
+    $strings = [];
+    $strings[] = (int)$string1;
+    $strings[] = (int)$string2;
+    $strings[] = (int)$string3;
+    $strings[] = (int)$string4;
+    $strings[] = (int)$string5;
+    $strings[] = (int)$string6;
 
+    $target = $strings;
+    $result = array_diff($target, array('100','101','102','103','104','105'));
+    $result = array_values($result);
+    $space = " ";
+
+    $r =implode($space,$result);
+
+
+       $command = "python \src\main.py ${r}";
+       putenv("PYTHONUTF8=1");
+       exec($command, $output);
+       foreach ($output as $o) {
+         // code...
+         print("$o");
+       }
+
+     ?>
   </body>
 </html>
