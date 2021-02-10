@@ -1,10 +1,9 @@
 from key_name_matching import number_to_char
-from three_code import three_code
-from four_code import four_code
+from five_code import five_code
 
-def five_code(keys):
+def six_code(keys):
 
-    root_codename = four_code(keys[:4])
+    root_codename = five_code(keys[:5])
     root = keys[0]
     top  = keys[2]
     add  = keys[-1]
@@ -30,17 +29,6 @@ def five_code(keys):
 
         if add-top == 14:
             return root_codename + '(13)'
-
-
-
-    ###############
-    ## root code ##
-    ###############
-    
-#    root_codename = four_code(keys[1:])
-
-#    if type(root_codename) is str:
-#        return f'{number_to_char(root)}/{root_codename}'
 
     return keys
 
