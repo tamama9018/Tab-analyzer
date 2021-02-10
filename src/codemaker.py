@@ -6,6 +6,7 @@ from six_code import six_code
 from rotate import rotate
 from code_rename import code_rename
 from code_rule import code_rule
+from key_name_matching import number_to_char
 
 
 def codemaker(keys):
@@ -31,13 +32,15 @@ def codemaker(keys):
             if type(codename) is str:
                 codenames += [codename]
 
-    
     if length == 4:
         for keys in rotate(keys):
             codename = four_code(keys)
             if type(codename) is str:
                 codenames += [codename]
 
+        root_codename = three_code(keys[1:])
+        if type(root_codename) is str:      
+            codenames += [f'{root_codename}/{number_to_char(root)}']
 
     if length == 5:
         for keys in rotate(keys):
@@ -45,11 +48,20 @@ def codemaker(keys):
             if type(codename) is str:
                 codenames += [codename]
 
+        root_codename = four_code(keys[1:])
+        if type(root_codename) is str:      
+            codenames += [f'{root_codename}/{number_to_char(root)}']
+
     if length == 6:
         for keys in rotate(keys):
             codename = six_code(keys)
             if type(codename) is str:
                 codenames += [codename]
+
+        root_codename = five_code(keys[1:])
+        if type(root_codename) is str:      
+            codenames += [f'{root_codename}/{number_to_char(root)}']   
+
 
     codenames = sorted(list(set(codenames)))
     codenames = code_rename(codenames)
