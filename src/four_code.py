@@ -57,11 +57,9 @@ def four_code(keys):
         return f'{number_to_char(root)}/{root_codename}'
 
 
-
     ###############
     ## omit code ##
     ###############
-    
     
 
     return keys
