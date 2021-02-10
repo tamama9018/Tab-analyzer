@@ -54,7 +54,7 @@ def four_code(keys):
     root_codename = three_code(keys[1:])
 
     if type(root_codename) is str:
-        return f'{number_to_char(root)}/{root_codename}'
+        return f'{root_codename}/{number_to_char(root)}'
 
 
     ###############
