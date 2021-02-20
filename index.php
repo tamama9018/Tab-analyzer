@@ -3,99 +3,393 @@
   <head>
     <meta charset="utf-8">
     <title>Tab-analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style media="screen">
+      .hidden{
+        font-size: 0px;
+      }
+      header{
+        margin: 10px;
+      }
+      header img{
+        width:100px;
+      }
+      body{
+        max-width:1140px;
+      }
+
+      .my-radio {
+  position: relative;
+  /*display: block; /* 縦並びに */
+/* 前後のスペース */
+  padding-left: 42px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 3;
+
+  }
+  /* inputは非表示にする */
+  .my-radio input {
+  display: none;
+  }
+  /* 常に表示する枠線の円 */
+  .radio-mark {
+  position: absolute;
+  top: 0; /* 上からの位置 */
+  left: 0;
+  height: 22px; /* 大きさ */
+  width: 22px; /* 大きさ */
+  border: solid 0px #d4dae2; /* 線 */
+  border-radius: 50%;
+  box-sizing: border-box;
+  }
+  /* 選択時に重ねる円 */
+  .radio-mark:after {
+  content: "";
+  position: absolute;
+  background: #6E8CD1; /* 色 */
+  border-radius: 50%;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  opacity: 0; /* 透明にしておく */
+  }
+  /* 選択時に重ねた円の透明を解除 */
+  .my-radio input:checked + .radio-mark:after {
+  opacity: 1;
+  }
+  .neck-wrapper{
+  /*display:flex;
+  align-items: strech;*/
+  height: auto;
+  position: relative;
+  margin-left: 100px ;
+  margin-top: 130px;
+
+  }
+  .absolute{
+    position: absolute;
+    top:150px;
+    z-index: 0;
+    left:;
+    width:620px;
+    margin-left: 90px;
+  }
+  .hidden{
+    font-size: 0px;
+  }
+
+  .neck-mobile{
+    display:none;
+  }
+  input[type=image]{
+    width:130px;
+    margin-left: 300px;
+
+  }
+
+
+  @media (max-width:800px) {
+    header img{
+      width:100px;
+    }
+    header{
+      border-bottom: solid;
+    }
+    .neck-wrapper{
+      display:flex;
+      align-items: stretch;
+      max-width:150px;
+      margin-left: 10%;
+      margin-bottom:50px;
+      position: relative;
+    }
+
+    .radio-mark{
+      height: 26px; /* 大きさ */
+      width: 26px;
+    }
+    .my-radio{
+      display: block;
+      position: relative;
+      padding-left: 28px;
+      margin-bottom:33px;
+
+    }
+    .absolute{
+      display: none;
+      position: absolute;
+    }
+    .neck-mobile{
+      display: block;
+      position: absolute;
+      top:165px;
+      z-index: 0;
+      left:13%;
+      width:200px;
+
+
+
+    }
+    .search{
+    position: fixed;
+    }
+
+    .chord{
+      display: block;
+      margin-left: 300px;
+    }
+
+    .string1{
+      order:6;
+    }
+    .string2{
+      order:5;
+    }
+    .string3{
+      order:4;
+    }
+    .string4{
+      order:3;
+    }
+    .string5{
+      order:2;
+    }
+    .string6{
+      order:1;
+    }
+  }
+
+
+    </style>
   </head>
   <body>
+    <header>
+      <img src="./images/whatab.png" alt="logo">
+   </header>
     <form class="neck" action="" method="post">
+    <div class="neck-wrapper">
     <table >
-      <th></th>
-      <tr>
-        <input type="radio" name="string1" value="100" checked <?php if(isset($_POST['string1']) && $_POST['string1'] == "100")echo 'checked'; ?>>
-        <input type="radio" name="string1" value="4"<?php if(isset($_POST['string1']) && $_POST['string1'] == "4")echo 'checked'; ?>>
-        <input type="radio" name="string1" value="5"<?php if(isset($_POST['string1']) && $_POST['string1'] == "5")echo 'checked'; ?>>
-        <input type="radio" name="string1" value="6"<?php if(isset($_POST['string1']) && $_POST['string1'] == "6")echo 'checked'; ?>>
-        <input type="radio" name="string1" value="7"<?php if(isset($_POST['string1']) && $_POST['string1'] == "7")echo 'checked'; ?>>
-        <input type="radio" name="string1" value="8"<?php if(isset($_POST['string1']) && $_POST['string1'] == "8")echo 'checked'; ?>>
+
+
+          <?php
+          $st1s = [101, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3];
+          $st2s = [102, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+          $st3s = [103, 7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6];
+          $st4s = [104, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1];
+          $st5s = [105, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8];
+          $st6s = [106, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3];
+          ?>
+          <tr>
+            <div class="string1">
+          <?php foreach ($st1s as $st1): ?>
+
+           <?php if ($st1 > 100) {
+           ?>
+
+              <label class=my-radio>
+              <input type=radio name=string1 value=<?php echo $st1;?> checked>
+              <span class=radio-mark></span>
+              <span class=hidden>1</span>
+              </label>
+          <?php
+          }else{
+          ?>
+            <label class=my-radio>
+            <input type=radio name=string1 value=<?php echo $st1;?> <?php if(isset($_POST['string1']) && $_POST['string1'] == $st1)echo 'checked'; ?>>
+            <span class=radio-mark></span>
+            <span class=hidden>1</span>
+            </label>
+            <?php
+          }
+          ?>
+        <?php endforeach; ?>
+      </div>
       </tr>
-      <br>
-      <tr>
-        <input type="radio" name="string2" value="101" checked<?php if(isset($_POST['string2']) && $_POST['string2'] == "101")echo 'checked'; ?>>
-        <input type="radio" name="string2" value="11" <?php if(isset($_POST['string2']) && $_POST['string2'] == "11")echo 'checked'; ?>>
-        <input type="radio" name="string2" value="0" <?php if(isset($_POST['string2']) && $_POST['string2'] == "0")echo 'checked'; ?>>
-        <input type="radio" name="string2" value="1" <?php if(isset($_POST['string2']) && $_POST['string2'] == "1")echo 'checked'; ?>>
-        <input type="radio" name="string2" value="2" <?php if(isset($_POST['string2']) && $_POST['string2'] == "2")echo 'checked'; ?>>
-        <input type="radio" name="string2" value="3" <?php if(isset($_POST['string2']) && $_POST['string2'] == "3")echo 'checked'; ?>>
-      </tr>
-      <br>
-      <tr>
-        <input type="radio" name="string3" value="102" checked <?php if(isset($_POST['string3']) && $_POST['string3'] == "102")echo 'checked'; ?>>
-        <input type="radio" name="string3" value="7" <?php if(isset($_POST['string3']) && $_POST['string3'] == "7")echo 'checked'; ?>>
-        <input type="radio" name="string3" value="8" <?php if(isset($_POST['string3']) && $_POST['string3'] == "8")echo 'checked'; ?>>
-        <input type="radio" name="string3" value="9" <?php if(isset($_POST['string3']) && $_POST['string3'] == "9")echo 'checked'; ?>>
-        <input type="radio" name="string3" value="10" <?php if(isset($_POST['string3']) && $_POST['string3'] == "10")echo 'checked'; ?>>
-        <input type="radio" name="string3" value="11" <?php if(isset($_POST['string3']) && $_POST['string3'] == "11")echo 'checked'; ?>>
-      </tr>
-      <br>
-      <tr>
-        <input type="radio" name="string4" value="103" checked <?php if(isset($_POST['string4']) && $_POST['string4'] == "103")echo 'checked'; ?>>
-        <input type="radio" name="string4" value="2" <?php if(isset($_POST['string4']) && $_POST['string4'] == "2")echo 'checked'; ?>>
-        <input type="radio" name="string4" value="3" <?php if(isset($_POST['string4']) && $_POST['string4'] == "3")echo 'checked'; ?>>
-        <input type="radio" name="string4" value="4" <?php if(isset($_POST['string4']) && $_POST['string4'] == "4")echo 'checked'; ?>>
-        <input type="radio" name="string4" value="5" <?php if(isset($_POST['string4']) && $_POST['string4'] == "5")echo 'checked'; ?>>
-        <input type="radio" name="string4" value="6" <?php if(isset($_POST['string4']) && $_POST['string4'] == "6")echo 'checked'; ?>>
-      </tr>
-      <br>
-      <tr>
-        <input type="radio" name="string5" value="104" checked <?php if(isset($_POST['string5']) && $_POST['string5'] == "104")echo 'checked'; ?>>
-        <input type="radio" name="string5" value="9" <?php if(isset($_POST['string5']) && $_POST['string5'] == "9")echo 'checked'; ?>>
-        <input type="radio" name="string5" value="10" <?php if(isset($_POST['string5']) && $_POST['string5'] == "10")echo 'checked'; ?>>
-        <input type="radio" name="string5" value="11" <?php if(isset($_POST['string5']) && $_POST['string5'] == "11")echo 'checked'; ?>>
-        <input type="radio" name="string5" value="0" <?php if(isset($_POST['string5']) && $_POST['string5'] == "0")echo 'checked'; ?>>
-        <input type="radio" name="string5" value="1" <?php if(isset($_POST['string5']) && $_POST['string5'] == "1")echo 'checked'; ?>>
-      </tr>
-      <br>
-      <tr>
-        <input type="radio" name="string6" value="105" checked <?php if(isset($_POST['string6']) && $_POST['string6'] == "105")echo 'checked'; ?>>
-        <input type="radio" name="string6" value="4" <?php if(isset($_POST['string6']) && $_POST['string6'] == "4")echo 'checked'; ?>>
-        <input type="radio" name="string6" value="5" <?php if(isset($_POST['string6']) && $_POST['string6'] == "5")echo 'checked'; ?>>
-        <input type="radio" name="string6" value="6" <?php if(isset($_POST['string6']) && $_POST['string6'] == "6")echo 'checked'; ?>>
-        <input type="radio" name="string6" value="7" <?php if(isset($_POST['string6']) && $_POST['string6'] == "7")echo 'checked'; ?>>
-        <input type="radio" name="string6" value="8" <?php if(isset($_POST['string6']) && $_POST['string6'] == "8")echo 'checked'; ?>>
-      </tr>
-    </table>
-    <input type="submit" name="" value="Search">
-    </form>
+
+
+  <tr>
+    <div class="string2">
+  <?php foreach ($st2s as $st2): ?>
+
+   <?php if ($st2 > 100) {
+   ?>
+
+      <label class=my-radio>
+      <input type=radio name=string2 value=<?php echo $st2;?> checked>
+      <span class=radio-mark></span>
+      <span class=hidden>1</span>
+      </label>
+  <?php
+  }else{
+  ?>
+    <label class=my-radio>
+    <input type=radio name=string2 value=<?php echo $st2;?> <?php if(isset($_POST['string2']) && $_POST['string2'] == $st2)echo 'checked'; ?>>
+    <span class=radio-mark></span>
+    <span class=hidden>1</span>
+    </label>
     <?php
-    $string1 = $_POST['string1'];
-    $string2 = $_POST['string2'];
-    $string3 = $_POST['string3'];
-    $string4 = $_POST['string4'];
-    $string5 = $_POST['string5'];
-    $string6 = $_POST['string6'];
+  }
+  ?>
+<?php endforeach; ?>
+</div>
+</tr>
 
-    $strings = [];
-    $strings[] = (int)$string1;
-    $strings[] = (int)$string2;
-    $strings[] = (int)$string3;
-    $strings[] = (int)$string4;
-    $strings[] = (int)$string5;
-    $strings[] = (int)$string6;
+<tr>
+  <div class="string3">
+<?php foreach ($st3s as $st3): ?>
 
-    $target = $strings;
-    $result = array_diff($target, array('100','101','102','103','104','105'));
-    $result = array_values($result);
-    $space = " ";
+ <?php if ($st3 > 100) {
+ ?>
 
-    $r =implode($space,$result);
+    <label class=my-radio>
+    <input type=radio name=string3 value=<?php echo $st3;?> checked>
+    <span class=radio-mark></span>
+    <span class=hidden>1</span>
+    </label>
+<?php
+}else{
+?>
+  <label class=my-radio>
+  <input type=radio name=string3 value=<?php echo $st3;?> <?php if(isset($_POST['string3']) && $_POST['string3'] == $st3)echo 'checked'; ?>>
+  <span class=radio-mark></span>
+  <span class=hidden>1</span>
+  </label>
+  <?php
+}
+?>
+<?php endforeach; ?>
+</div>
+</tr>
+
+<tr>
+  <div class="string4">
+<?php foreach ($st4s as $st4): ?>
+
+ <?php if ($st4 > 100) {
+ ?>
+
+    <label class=my-radio>
+    <input type=radio name=string4 value=<?php echo $st4;?> checked>
+    <span class=radio-mark></span>
+    <span class=hidden>1</span>
+    </label>
+<?php
+}else{
+?>
+  <label class=my-radio>
+  <input type=radio name=string4 value=<?php echo $st4;?> <?php if(isset($_POST['string4']) && $_POST['string4'] == $st4)echo 'checked'; ?>>
+  <span class=radio-mark></span>
+  <span class=hidden>1</span>
+  </label>
+  <?php
+}
+?>
+<?php endforeach; ?>
+</div>
+</tr>
+
+<tr>
+  <div class="string5">
+<?php foreach ($st5s as $st5): ?>
+
+ <?php if ($st5 > 100) {
+ ?>
+
+    <label class=my-radio>
+    <input type=radio name=string5 value=<?php echo $st5;?> checked>
+    <span class=radio-mark></span>
+    <span class=hidden>1</span>
+    </label>
+<?php
+}else{
+?>
+  <label class=my-radio>
+  <input type=radio name=string5 value=<?php echo $st5;?> <?php if(isset($_POST['string5']) && $_POST['string5'] == $st5)echo 'checked'; ?>>
+  <span class=radio-mark></span>
+  <span class=hidden>1</span>
+  </label>
+  <?php
+}
+?>
+<?php endforeach; ?>
+</div>
+</tr>
+
+<tr>
+  <div class="string6">
+<?php foreach ($st6s as $st6): ?>
+
+ <?php if ($st6 > 100) {
+ ?>
+
+    <label class=my-radio>
+    <input type=radio name=string6 value=<?php echo $st6;?> checked>
+    <span class=radio-mark></span>
+    <span class=hidden>1</span>
+    </label>
+<?php
+}else{
+?>
+  <label class=my-radio>
+  <input type=radio name=string6 value=<?php echo $st6;?> <?php if(isset($_POST['string6']) && $_POST['string6'] == $st6)echo 'checked'; ?>>
+  <span class=radio-mark></span>
+  <span class=hidden>1</span>
+  </label>
+  <?php
+}
+?>
+<?php endforeach; ?>
+</div>
+</tr>
 
 
-       $command = "python src/main.py ${r}";
-       putenv("PYTHONUTF8=1");
-       exec($command, $output);
-       foreach ($output as $o) {
-         // code...
-         print("$o");
-       }
+    </table>
+    <div class="search">
+  <input type="image" name="" src="./images/search.png">
+  <?php
+  $string1 = $_POST['string1'];
+  $string2 = $_POST['string2'];
+  $string3 = $_POST['string3'];
+  $string4 = $_POST['string4'];
+  $string5 = $_POST['string5'];
+  $string6 = $_POST['string6'];
 
-     ?>
+  $strings = [];
+  $strings[] = (int)$string1;
+  $strings[] = (int)$string2;
+  $strings[] = (int)$string3;
+  $strings[] = (int)$string4;
+  $strings[] = (int)$string5;
+  $strings[] = (int)$string6;
+
+  $target = $strings;
+  $result = array_diff($target, array('101','102','103','104','105','106'));
+  $result = array_values($result);
+  $space = " ";
+
+  $r =implode($space,$result);
+
+
+     $command = "python src/main.py ${r}";
+     putenv("PYTHONUTF8=1");
+     exec($command, $output);
+     foreach ($output as $o) {
+       // code...
+       echo "<span class=chord>{$o}</span>";
+     }
+
+   ?>
+  </div>
+  </div>
+  <img src="./images/neck2.png" alt="" class="absolute">
+  <img src="./images/neck_stand.png" alt="" class="neck-mobile">
+
+    </form>
+
+
+
+
   </body>
 </html>
