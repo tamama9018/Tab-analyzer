@@ -166,7 +166,7 @@
   </head>
   <body>
     <header>
-      <img src="./images/whatab.png" alt="logo">
+      <img src="./images/Whatab.png" alt="logo">
    </header>
     <form class="neck" action="" method="post">
     <div class="neck-wrapper">
@@ -383,7 +383,7 @@
    ?>
   </div>
   </div>
-  <img src="./images/neck2.png" alt="" class="absolute">
+  <img src="./images/neck.png" alt="" class="absolute">
   <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
     </form>
