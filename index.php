@@ -14,98 +14,88 @@
       header img{
         width:100px;
       }
-      body{
-        max-width:1140px;
+      .my-radio {
+        position: relative;
+        /*display: block; /* 縦並びに */
+        padding-left: 42px;
+        cursor: pointer;
+        user-select: none;
+        z-index: 3;
+      }
+      /* inputは非表示にする */
+      .my-radio input {
+        display: none;
+      }
+      /* 常に表示する枠線の円 */
+      .radio-mark {
+        position: absolute;
+        top: 0; /* 上からの位置 */
+        left: 0;
+        height: 22px; /* 大きさ */
+        width: 22px; /* 大きさ */
+        border: solid 0px #d4dae2; /* 線 */
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+      /* 選択時に重ねる円 */
+      .radio-mark:after {
+        content: "";
+        position: absolute;
+        background: #6E8CD1; /* 色 */
+        border-radius: 50%;
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
+        opacity: 0; /* 透明にしておく */
+      }
+      /* 選択時に重ねた円の透明を解除 */
+      .my-radio input:checked + .radio-mark:after {
+        opacity: 1;
       }
 
-      .my-radio {
-  position: relative;
-  /*display: block; /* 縦並びに */
-/* 前後のスペース */
-  padding-left: 42px;
-  cursor: pointer;
-  user-select: none;
-  z-index: 3;
+      .neck-wrapper{
+        /*display:flex;
+        align-items: strech;*/
+        height: auto;
+        position: relative;
+        margin:0 auto;
+        width:800px;
+        padding-top:35px;
+        text-align: center;
+      }
+      .absolute{
+        position: absolute;
+        top:0px;
+        z-index: 0;
+        left:10.5%;
+        width:620px;
 
-  }
-  /* inputは非表示にする */
-  .my-radio input {
-  display: none;
-  }
-  /* 常に表示する枠線の円 */
-  .radio-mark {
-  position: absolute;
-  top: 0; /* 上からの位置 */
-  left: 0;
-  height: 22px; /* 大きさ */
-  width: 22px; /* 大きさ */
-  border: solid 0px #d4dae2; /* 線 */
-  border-radius: 50%;
-  box-sizing: border-box;
-  }
-  /* 選択時に重ねる円 */
-  .radio-mark:after {
-  content: "";
-  position: absolute;
-  background: #6E8CD1; /* 色 */
-  border-radius: 50%;
-  top: 2px;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  opacity: 0; /* 透明にしておく */
-  }
-  /* 選択時に重ねた円の透明を解除 */
-  .my-radio input:checked + .radio-mark:after {
-  opacity: 1;
-  }
-  .neck-wrapper{
-  /*display:flex;
-  align-items: strech;*/
-  height: auto;
-  position: relative;
-  margin-left: 100px ;
-  margin-top: 130px;
+      }
+      .hidden{
+        font-size: 0px;
+      }
 
-  }
-  .absolute{
-    position: absolute;
-    top:150px;
-    z-index: 0;
-    left:;
-    width:620px;
-    margin-left: 90px;
-  }
-  .hidden{
-    font-size: 0px;
-  }
+      .neck-mobile{
+        display:none;
+      }
+      .search{
+        width:130px;
+        margin: 0 auto;
+      }
 
-  .neck-mobile{
-    display:none;
-  }
-  input[type=image]{
-    width:130px;
-    margin-left: 300px;
-
-  }
-
-
+/*スマホ
+-------------------------------*/
   @media (max-width:800px) {
+    body{
+      text-align: center;
+    }
     header img{
       width:100px;
     }
     header{
       border-bottom: solid;
     }
-    .neck-wrapper{
-      display:flex;
-      align-items: stretch;
-      max-width:150px;
-      margin-left: 10%;
-      margin-bottom:50px;
-      position: relative;
-    }
-
     .radio-mark{
       height: 26px; /* 大きさ */
       width: 26px;
@@ -117,6 +107,14 @@
       margin-bottom:33px;
 
     }
+    .neck-wrapper{
+      display:flex;
+      align-items: stretch;
+      position: relative;
+     justify-content: center;
+     width:400px;
+     text-align: center;
+    }
     .absolute{
       display: none;
       position: absolute;
@@ -124,23 +122,22 @@
     .neck-mobile{
       display: block;
       position: absolute;
-      top:165px;
+      top:20px;
       z-index: 0;
-      left:13%;
       width:200px;
-
-
-
+      left:31%
     }
-    .search{
+  /*  .search{
     position: fixed;
     }
 
     .chord{
       display: block;
       margin-left: 300px;
-    }
+    }*/
 
+/*弦の順番を左から6→1に変える
+----------------------------*/
     .string1{
       order:6;
     }
@@ -160,13 +157,11 @@
       order:1;
     }
   }
-
-
     </style>
   </head>
   <body>
     <header>
-      <img src="./images/Whatab.png" alt="logo">
+      <img src="./images/whatab.png" alt="logo">
    </header>
     <form class="neck" action="" method="post">
     <div class="neck-wrapper">
@@ -346,50 +341,48 @@
 
 
     </table>
-    <div class="search">
-  <input type="image" name="" src="./images/search.png">
+    <img src="./images/neck2.png" alt="" class="absolute">
+    <img src="./images/neck_stand.png" alt="" class="neck-mobile">
+
+
+
+  </div>
+  <div class="search">
+   <input type="image" name="" src="./images/search.png" class="search">
   <?php
-  $string1 = $_POST['string1'];
-  $string2 = $_POST['string2'];
-  $string3 = $_POST['string3'];
-  $string4 = $_POST['string4'];
-  $string5 = $_POST['string5'];
-  $string6 = $_POST['string6'];
+    $string1 = $_POST['string1'];
+    $string2 = $_POST['string2'];
+    $string3 = $_POST['string3'];
+    $string4 = $_POST['string4'];
+    $string5 = $_POST['string5'];
+    $string6 = $_POST['string6'];
 
-  $strings = [];
-  $strings[] = (int)$string1;
-  $strings[] = (int)$string2;
-  $strings[] = (int)$string3;
-  $strings[] = (int)$string4;
-  $strings[] = (int)$string5;
-  $strings[] = (int)$string6;
+    $strings = [];
+    $strings[] = (int)$string1;
+    $strings[] = (int)$string2;
+    $strings[] = (int)$string3;
+    $strings[] = (int)$string4;
+    $strings[] = (int)$string5;
+    $strings[] = (int)$string6;
 
-  $target = $strings;
-  $result = array_diff($target, array('101','102','103','104','105','106'));
-  $result = array_values($result);
-  $space = " ";
+    $target = $strings;
+    $result = array_diff($target, array('101','102','103','104','105','106'));
+    $result = array_values($result);
+    $space = " ";
 
-  $r =implode($space,$result);
+    $r =implode($space,$result);
 
 
-     $command = "python src/main.py ${r}";
-     putenv("PYTHONUTF8=1");
-     exec($command, $output);
-     foreach ($output as $o) {
-       // code...
-       echo "<span class=chord>{$o}</span>";
-     }
+   $command = "python src/main.py ${r}";
+   putenv("PYTHONUTF8=1");
+   exec($command, $output);
+   foreach ($output as $o) {
+     // code...
+     echo "<span class=chord>{$o}</span>";
+   }
 
    ?>
-  </div>
-  </div>
-  <img src="./images/neck.png" alt="" class="absolute">
-  <img src="./images/neck_stand.png" alt="" class="neck-mobile">
-
+     </div>
     </form>
-
-
-
-
   </body>
 </html>
