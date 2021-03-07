@@ -161,7 +161,7 @@
   </head>
   <body>
     <header>
-      <img src="./images/whatab.png" alt="logo">
+      <img src="./images/Whatab.png" alt="logo">
    </header>
     <form class="neck" action="" method="post">
     <div class="neck-wrapper">
