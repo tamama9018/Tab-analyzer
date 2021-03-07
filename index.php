@@ -341,7 +341,7 @@
 
 
     </table>
-    <img src="./images/neck2.png" alt="" class="absolute">
+    <img src="./images/neck.png" alt="" class="absolute">
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
 
