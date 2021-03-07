@@ -5,15 +5,49 @@
     <title>Tab-analyzer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
+    /*共通部分
+    -------------------------------------*/
       .hidden{
         font-size: 0px;
       }
+    /*header
+    -------------------------------------*/
       header{
         margin: 10px;
       }
       header img{
         width:100px;
       }
+      /*headerより下
+      ------------------------------*/
+      .neck-wrapper{
+        /*display:flex;
+        align-items: strech;*/
+        height: auto;
+        position: relative;
+        margin:0 auto; /*中央よせ*/
+        width:800px; /*divの幅を決める*/
+        padding-top:35px;
+        text-align: center;
+      }
+      .absolute{
+        position: absolute;
+        top:0px;
+        z-index: 0;
+        left:10.5%;
+        width:620px;
+
+      }
+      .neck-mobile{
+        display:none;
+      }
+      .search{
+        width:130px;
+        margin: 0 auto;
+      }
+
+/*ラジオボタンの装飾
+-------------------------------------*/
       .my-radio {
         position: relative;
         /*display: block; /* 縦並びに */
@@ -54,35 +88,6 @@
         opacity: 1;
       }
 
-      .neck-wrapper{
-        /*display:flex;
-        align-items: strech;*/
-        height: auto;
-        position: relative;
-        margin:0 auto;
-        width:800px;
-        padding-top:35px;
-        text-align: center;
-      }
-      .absolute{
-        position: absolute;
-        top:0px;
-        z-index: 0;
-        left:10.5%;
-        width:620px;
-
-      }
-      .hidden{
-        font-size: 0px;
-      }
-
-      .neck-mobile{
-        display:none;
-      }
-      .search{
-        width:130px;
-        margin: 0 auto;
-      }
 
 /*スマホ
 -------------------------------*/
@@ -96,24 +101,14 @@
     header{
       border-bottom: solid;
     }
-    .radio-mark{
-      height: 26px; /* 大きさ */
-      width: 26px;
-    }
-    .my-radio{
-      display: block;
-      position: relative;
-      padding-left: 28px;
-      margin-bottom:33px;
-
-    }
     .neck-wrapper{
       display:flex;
-      align-items: stretch;
+      align-items: stretch;/*ラジオボタンを縦にする*/
       position: relative;
-     justify-content: center;
-     width:400px;
+     justify-content: center;/*ラジオボタンを中央よせ*/
+     width:200px;/*divの幅を決める*/
      text-align: center;
+     height:800px;
     }
     .absolute{
       display: none;
@@ -125,7 +120,7 @@
       top:20px;
       z-index: 0;
       width:200px;
-      left:31%
+      left:13%;
     }
   /*  .search{
     position: fixed;
@@ -136,6 +131,18 @@
       margin-left: 300px;
     }*/
 
+    /*ラジオボタンの装飾
+    ----------------------*/
+    .radio-mark{
+      height: 26px; /* 大きさ */
+      width: 26px;
+    }
+    .my-radio{
+      display: block;
+      position: relative;
+      padding-left: 28px;
+      margin-bottom:33px;
+    }
 /*弦の順番を左から6→1に変える
 ----------------------------*/
     .string1{
@@ -206,55 +213,52 @@
 
   <tr>
     <div class="string2">
-  <?php foreach ($st2s as $st2): ?>
+      <?php foreach ($st2s as $st2): ?>
 
-   <?php if ($st2 > 100) {
-   ?>
+        <?php if ($st2 > 100) {
+          ?>
 
+          <label class=my-radio>
+            <input type=radio name=string2 value=<?php echo $st2;?> checked>
+            <span class=radio-mark></span>
+            <span class=hidden>1</span>
+          </label>
+      <?php
+        }else{
+      ?>
       <label class=my-radio>
-      <input type=radio name=string2 value=<?php echo $st2;?> checked>
-      <span class=radio-mark></span>
-      <span class=hidden>1</span>
+        <input type=radio name=string2 value=<?php echo $st2;?> <?php if(isset($_POST['string2']) && $_POST['string2'] == $st2)echo 'checked'; ?>>
+        <span class=radio-mark></span>
+        <span class=hidden>1</span>
       </label>
-  <?php
-  }else{
-  ?>
-    <label class=my-radio>
-    <input type=radio name=string2 value=<?php echo $st2;?> <?php if(isset($_POST['string2']) && $_POST['string2'] == $st2)echo 'checked'; ?>>
-    <span class=radio-mark></span>
-    <span class=hidden>1</span>
-    </label>
-    <?php
-  }
-  ?>
-<?php endforeach; ?>
-</div>
+      <?php
+        }
+      ?>
+    <?php endforeach; ?>
+  </div>
 </tr>
 
 <tr>
   <div class="string3">
-<?php foreach ($st3s as $st3): ?>
+    <?php foreach ($st3s as $st3): ?>
 
- <?php if ($st3 > 100) {
- ?>
+      <?php if ($st3 > 100) {?>
 
-    <label class=my-radio>
-    <input type=radio name=string3 value=<?php echo $st3;?> checked>
-    <span class=radio-mark></span>
-    <span class=hidden>1</span>
-    </label>
-<?php
-}else{
-?>
-  <label class=my-radio>
-  <input type=radio name=string3 value=<?php echo $st3;?> <?php if(isset($_POST['string3']) && $_POST['string3'] == $st3)echo 'checked'; ?>>
-  <span class=radio-mark></span>
-  <span class=hidden>1</span>
-  </label>
-  <?php
-}
-?>
-<?php endforeach; ?>
+        <label class=my-radio>
+        <input type=radio name=string3 value=<?php echo $st3;?> checked>
+        <span class=radio-mark></span>
+        <span class=hidden>1</span>
+        </label>
+      <?php
+        }else{
+      ?>
+      <label class=my-radio>
+      <input type=radio name=string3 value=<?php echo $st3;?> <?php if(isset($_POST['string3']) && $_POST['string3'] == $st3)echo 'checked'; ?>>
+      <span class=radio-mark></span>
+      <span class=hidden>1</span>
+      </label>
+      <?php } ?>
+    <?php endforeach; ?>
 </div>
 </tr>
 
@@ -378,6 +382,9 @@
    exec($command, $output);
    foreach ($output as $o) {
      // code...
+    $o = str_replace('[',' ',$o);
+    $o = str_replace(']',' ',$o);
+    $o = str_replace("'",'',$o);
      echo "<span class=chord>{$o}</span>";
    }
 
