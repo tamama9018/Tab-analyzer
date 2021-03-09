@@ -23,12 +23,13 @@
       .neck-wrapper{
         /*display:flex;
         align-items: strech;*/
-        height: auto;
+
         position: relative;
         margin:0 auto; /*中央よせ*/
         width:800px; /*divの幅を決める*/
         padding-top:35px;
         text-align: center;
+        height:145px;
       }
       .absolute{
         position: absolute;
@@ -36,6 +37,7 @@
         z-index: 0;
         left:10.5%;
         width:620px;
+        height:165px;
 
       }
       .neck-mobile{
@@ -44,6 +46,7 @@
       .search{
         width:130px;
         margin: 0 auto;
+        margin-top: 30px;
       }
 
 /*ラジオボタンの装飾
@@ -55,6 +58,7 @@
         cursor: pointer;
         user-select: none;
         z-index: 3;
+
       }
       /* inputは非表示にする */
       .my-radio input {
@@ -94,6 +98,7 @@
   @media (max-width:800px) {
     body{
       text-align: center;
+      height:100%;
     }
     header img{
       width:100px;
@@ -108,7 +113,7 @@
      justify-content: center;/*ラジオボタンを中央よせ*/
      width:200px;/*divの幅を決める*/
      text-align: center;
-     height:800px;
+     height:730px;
     }
     .absolute{
       display: none;
@@ -121,6 +126,7 @@
       z-index: 0;
       width:200px;
       left:13%;
+      height:750px;
     }
   /*  .search{
     position: fixed;
@@ -345,7 +351,7 @@
 
 
     </table>
-    <img src="./images/neck.png" alt="" class="absolute">
+    <img src="./images/neck2.png" alt="" class="absolute">
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
 
