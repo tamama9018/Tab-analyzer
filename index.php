@@ -390,6 +390,7 @@
     $r =implode($space,$result);
 
 
+
    $command = "python src/main.py ${r}";
    putenv("PYTHONUTF8=1");
    exec($command, $output);
@@ -400,6 +401,7 @@
     $o = str_replace("'",'',$o);
      echo "<span class=chord>{$o}</span>";
    }
+
 
    ?>
      </div>
