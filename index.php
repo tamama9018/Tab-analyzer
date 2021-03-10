@@ -27,9 +27,10 @@
         position: relative;
         margin:0 auto; /*中央よせ*/
         width:800px; /*divの幅を決める*/
-        padding-top:35px;
+        padding-top:42px;
         text-align: center;
-        height:145px;
+        height:100%;
+
       }
       .absolute{
         position: absolute;
@@ -37,7 +38,7 @@
         z-index: 0;
         left:10.5%;
         width:620px;
-        height:165px;
+        height:180px;
 
       }
       .neck-mobile{
@@ -58,6 +59,10 @@
         cursor: pointer;
         user-select: none;
         z-index: 3;
+        line-height: 15px;
+
+      }
+      label{
 
       }
       /* inputは非表示にする */
@@ -98,7 +103,7 @@
   @media (max-width:800px) {
     body{
       text-align: center;
-      height:100%;
+
     }
     header img{
       width:100px;
@@ -113,7 +118,7 @@
      justify-content: center;/*ラジオボタンを中央よせ*/
      width:200px;/*divの幅を決める*/
      text-align: center;
-     height:730px;
+     height:750px;
     }
     .absolute{
       display: none;
@@ -126,7 +131,7 @@
       z-index: 0;
       width:200px;
       left:13%;
-      height:750px;
+      height:100%;
     }
   /*  .search{
     position: fixed;
@@ -147,7 +152,9 @@
       display: block;
       position: relative;
       padding-left: 28px;
-      margin-bottom:33px;
+    }
+    label{
+      margin-bottom: 40px;
     }
 /*弦の順番を左から6→1に変える
 ----------------------------*/
@@ -351,7 +358,7 @@
 
 
     </table>
-    <img src="./images/neck2.png" alt="" class="absolute">
+    <img src="./images/neck.png" alt="" class="absolute">
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
 
@@ -383,6 +390,7 @@
     $r =implode($space,$result);
 
 
+
    $command = "python src/main.py ${r}";
    putenv("PYTHONUTF8=1");
    exec($command, $output);
@@ -393,6 +401,7 @@
     $o = str_replace("'",'',$o);
      echo "<span class=chord>{$o}</span>";
    }
+
 
    ?>
      </div>
