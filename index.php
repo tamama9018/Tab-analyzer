@@ -29,12 +29,12 @@
         width:800px; /*divの幅を決める*/
         padding-top:42px;
         text-align: center;
-        height:100%;
+        height:180px;
 
       }
       .absolute{
         position: absolute;
-        top:0px;
+        top:0;
         z-index: 0;
         left:10.5%;
         width:620px;
@@ -131,7 +131,7 @@
       z-index: 0;
       width:200px;
       left:13%;
-      height:100%;
+      height:790px;
     }
   /*  .search{
     position: fixed;
@@ -390,7 +390,6 @@
     $r =implode($space,$result);
 
 
-
    $command = "python src/main.py ${r}";
    putenv("PYTHONUTF8=1");
    exec($command, $output);
@@ -401,7 +400,6 @@
     $o = str_replace("'",'',$o);
      echo "<span class=chord>{$o}</span>";
    }
-
 
    ?>
      </div>
