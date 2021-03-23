@@ -20,6 +20,9 @@
       }
       /*headerより下
       ------------------------------*/
+      .neck{
+        height:100%;
+      }
       .neck-wrapper{
         /*display:flex;
         align-items: strech;*/
@@ -29,8 +32,11 @@
         width:800px; /*divの幅を決める*/
         padding-top:42px;
         text-align: center;
-        height:180px;
 
+
+      }
+      .table{
+        border-spacing: 0;
       }
       .absolute{
         position: absolute;
@@ -55,11 +61,12 @@
       .my-radio {
         position: relative;
         /*display: block; /* 縦並びに */
-        padding-left: 42px;
+        width:42px;
+        height:25px;
         cursor: pointer;
         user-select: none;
         z-index: 3;
-        line-height: 15px;
+        display: inline-block;
 
       }
       label{
@@ -68,6 +75,7 @@
       /* inputは非表示にする */
       .my-radio input {
         display: none;
+
       }
       /* 常に表示する枠線の円 */
       .radio-mark {
@@ -91,6 +99,7 @@
         left: 2px;
         right: 2px;
         opacity: 0; /* 透明にしておく */
+
       }
       /* 選択時に重ねた円の透明を解除 */
       .my-radio input:checked + .radio-mark:after {
@@ -152,10 +161,10 @@
       display: block;
       position: relative;
       padding-left: 28px;
+      width:0;
+      height:60px;
     }
-    label{
-      margin-bottom: 40px;
-    }
+
 /*弦の順番を左から6→1に変える
 ----------------------------*/
     .string1{
@@ -183,6 +192,7 @@
     <header>
       <img src="./images/Whatab.png" alt="logo">
    </header>
+   <div class="neck">
     <form class="neck" action="" method="post">
     <div class="neck-wrapper">
     <table >
@@ -362,7 +372,7 @@
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
 
-
+  </div>
   </div>
   <div class="search">
    <input type="image" name="" src="./images/search.png" class="search">
