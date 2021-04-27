@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Tab-analyzer</title>
+    <script src="pianotest.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
     /*共通部分
@@ -53,7 +54,7 @@
       .search{
         width:130px;
         margin: 0 auto;
-        margin-top: 30px;
+        margin-top: 80px;
       }
 
 /*ラジオボタンの装飾
@@ -106,6 +107,28 @@
         opacity: 1;
       }
 
+      /*鍵盤*/
+      .flet{
+        position: relative;
+        opacity: 10;
+        margin:0 auto; /*中央よせ*/
+        width:800px; /*divの幅を決める*/
+        padding-right: 300px;
+        text-align: center;
+      }
+
+      .string{
+        position: absolute;
+        opacity: 3;
+        z-index: 5;
+        width:300px;
+      }
+      .piano{
+        position: absolute;
+        opacity:3;
+        z-index: 1;
+        width:300px;
+      }
 
 /*スマホ
 -------------------------------*/
@@ -222,7 +245,7 @@
           }else{
           ?>
             <label class=my-radio>
-            <input type=radio name=string1 value=<?php echo $st1;?> <?php if(isset($_POST['string1']) && $_POST['string1'] == $st1)echo 'checked'; ?>>
+            <input type=radio name=string1 onclick="showimg1()" value=<?php echo $st1;?> <?php if(isset($_POST['string1']) && $_POST['string1'] == $st1)echo 'checked'; ?>>
             <span class=radio-mark></span>
             <span class=hidden>1</span>
             </label>
@@ -250,7 +273,7 @@
         }else{
       ?>
       <label class=my-radio>
-        <input type=radio name=string2 value=<?php echo $st2;?> <?php if(isset($_POST['string2']) && $_POST['string2'] == $st2)echo 'checked'; ?>>
+        <input type=radio name=string2 onclick="showimg2()" value=<?php echo $st2;?> <?php if(isset($_POST['string2']) && $_POST['string2'] == $st2)echo 'checked'; ?>>
         <span class=radio-mark></span>
         <span class=hidden>1</span>
       </label>
@@ -276,7 +299,7 @@
         }else{
       ?>
       <label class=my-radio>
-      <input type=radio name=string3 value=<?php echo $st3;?> <?php if(isset($_POST['string3']) && $_POST['string3'] == $st3)echo 'checked'; ?>>
+      <input type=radio name=string3 onclick="showimg3()" value=<?php echo $st3;?> <?php if(isset($_POST['string3']) && $_POST['string3'] == $st3)echo 'checked'; ?>>
       <span class=radio-mark></span>
       <span class=hidden>1</span>
       </label>
@@ -301,7 +324,7 @@
 }else{
 ?>
   <label class=my-radio>
-  <input type=radio name=string4 value=<?php echo $st4;?> <?php if(isset($_POST['string4']) && $_POST['string4'] == $st4)echo 'checked'; ?>>
+  <input type=radio name=string4 onclick="showimg4()" value=<?php echo $st4;?> <?php if(isset($_POST['string4']) && $_POST['string4'] == $st4)echo 'checked'; ?>>
   <span class=radio-mark></span>
   <span class=hidden>1</span>
   </label>
@@ -328,7 +351,7 @@
 }else{
 ?>
   <label class=my-radio>
-  <input type=radio name=string5 value=<?php echo $st5;?> <?php if(isset($_POST['string5']) && $_POST['string5'] == $st5)echo 'checked'; ?>>
+  <input type=radio name=string5 onclick="showimg5()" value=<?php echo $st5;?> <?php if(isset($_POST['string5']) && $_POST['string5'] == $st5)echo 'checked'; ?>>
   <span class=radio-mark></span>
   <span class=hidden>1</span>
   </label>
@@ -355,7 +378,7 @@
 }else{
 ?>
   <label class=my-radio>
-  <input type=radio name=string6 value=<?php echo $st6;?> <?php if(isset($_POST['string6']) && $_POST['string6'] == $st6)echo 'checked'; ?>>
+  <input type=radio name=string6 onclick="showimg6()" value=<?php echo $st6;?> <?php if(isset($_POST['string6']) && $_POST['string6'] == $st6)echo 'checked'; ?>>
   <span class=radio-mark></span>
   <span class=hidden>1</span>
   </label>
@@ -373,6 +396,16 @@
 
 
   </div>
+  </div>
+  <div class="flet">
+    <img src="" name="area1" class="string">
+  <img src="" name="area2" class="string">
+  <img src="" name="area3" class="string">
+  <img src="" name="area4" class="string">
+  <img src="" name="area5" class="string">
+  <img src="" name="area6" class="string">
+
+  <img src="./images/piano.png" alt="piano" class="piano">
   </div>
   <div class="search">
    <input type="image" name="" src="./images/search.png" class="search">
