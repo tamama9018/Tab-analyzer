@@ -54,7 +54,8 @@
       .search{
         width:130px;
         margin: 0 auto;
-        margin-top: 80px;
+        padding-left: 20px;
+
       }
 
 /*ラジオボタンの装飾
@@ -108,12 +109,18 @@
       }
 
       /*鍵盤*/
+      .key{
+        height:100px;
+        display:flex;
+        width:800px;
+        margin:50px auto;
+      }
       .flet{
         position: relative;
         opacity: 10;
-        margin:0 auto; /*中央よせ*/
-        width:800px; /*divの幅を決める*/
-        padding-right: 300px;
+
+        width:350px; /*divの幅を決める*/
+        height:100%;
         text-align: center;
       }
 
@@ -211,7 +218,7 @@
   }
     </style>
   </head>
-  <body>
+  <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
       <img src="./images/Whatab.png" alt="logo">
    </header>
@@ -237,7 +244,7 @@
            ?>
 
               <label class=my-radio>
-              <input type=radio name=string1 value=<?php echo $st1;?> checked>
+              <input type=radio name=string1 onclick="muteimg1()" value=<?php echo $st1;?> checked>
               <span class=radio-mark></span>
               <span class=hidden>1</span>
               </label>
@@ -245,7 +252,7 @@
           }else{
           ?>
             <label class=my-radio>
-            <input type=radio name=string1 onclick="showimg1()" value=<?php echo $st1;?> <?php if(isset($_POST['string1']) && $_POST['string1'] == $st1)echo 'checked'; ?>>
+            <input type=radio name=string1 onclick="showimg1()" value=<?php echo $st1;?> <?php if(isset($_POST['string1']) && $_POST['string1'] == $st1)echo 'checked'; ?> >
             <span class=radio-mark></span>
             <span class=hidden>1</span>
             </label>
@@ -265,7 +272,7 @@
           ?>
 
           <label class=my-radio>
-            <input type=radio name=string2 value=<?php echo $st2;?> checked>
+            <input type=radio name=string2 onclick="muteimg2()" value=<?php echo $st2;?> checked>
             <span class=radio-mark></span>
             <span class=hidden>1</span>
           </label>
@@ -291,7 +298,7 @@
       <?php if ($st3 > 100) {?>
 
         <label class=my-radio>
-        <input type=radio name=string3 value=<?php echo $st3;?> checked>
+        <input type=radio name=string3  onclick="muteimg3()" value=<?php echo $st3;?> checked>
         <span class=radio-mark></span>
         <span class=hidden>1</span>
         </label>
@@ -316,7 +323,7 @@
  ?>
 
     <label class=my-radio>
-    <input type=radio name=string4 value=<?php echo $st4;?> checked>
+    <input type=radio name=string4 onclick="muteimg4()" value=<?php echo $st4;?> checked>
     <span class=radio-mark></span>
     <span class=hidden>1</span>
     </label>
@@ -343,7 +350,7 @@
  ?>
 
     <label class=my-radio>
-    <input type=radio name=string5 value=<?php echo $st5;?> checked>
+    <input type=radio name=string5 onclick="muteimg5()" value=<?php echo $st5;?> checked>
     <span class=radio-mark></span>
     <span class=hidden>1</span>
     </label>
@@ -370,7 +377,7 @@
  ?>
 
     <label class=my-radio>
-    <input type=radio name=string6 value=<?php echo $st6;?> checked>
+    <input type=radio name=string6 onclick="muteimg6()" value=<?php echo $st6;?> checked>
     <span class=radio-mark></span>
     <span class=hidden>1</span>
     </label>
@@ -397,6 +404,7 @@
 
   </div>
   </div>
+  <div class="key">
   <div class="flet">
     <img src="" name="area1" class="string">
   <img src="" name="area2" class="string">
@@ -407,6 +415,7 @@
 
   <img src="./images/piano.png" alt="piano" class="piano">
   </div>
+
   <div class="search">
    <input type="image" name="" src="./images/search.png" class="search">
   <?php
@@ -446,6 +455,186 @@
 
    ?>
      </div>
+   </div>
     </form>
+    <script type="text/javascript">
+    function putimg1(){
+        radio = document.getElementsByName('string1')
+        if(radio[1].checked){
+          document.area1.src = "images/e.png";
+        }else if (radio[2].checked) {
+          document.area1.src = "images/f.png";
+        }else if (radio[3].checked) {
+          document.area1.src = "images/fs.png";
+        }else if (radio[4].checked) {
+          document.area1.src = "images/g.png";
+        }else if (radio[5].checked) {
+          document.area1.src = "images/gs.png";
+        }else if (radio[6].checked) {
+          document.area1.src = "images/a.png";
+        }else if (radio[7].checked) {
+          document.area1.src = "images/as.png";
+        }else if (radio[8].checked) {
+          document.area1.src = "images/b.png";
+        }else if (radio[9].checked) {
+          document.area1.src = "images/c.png";
+        }else if (radio[10].checked) {
+          document.area1.src = "images/cs.png";
+        }else if (radio[11].checked) {
+          document.area1.src = "images/d.png";
+        }else if (radio[12].checked) {
+          document.area1.src = "images/ds.png";
+        }else if (radio[0].checked){
+          document.area1.src = "images/mute.png";
+        }
+      }
+
+      //string2
+      function putimg2(){
+        radio = document.getElementsByName('string2')
+        if(radio[1].checked){
+          document.area2.src = "images/b.png";
+        }else if (radio[2].checked) {
+          document.area2.src = "images/c.png";
+        }else if (radio[3].checked) {
+          document.area2.src = "images/cs.png";
+        }else if (radio[4].checked) {
+          document.area2.src = "images/d.png";
+        }else if (radio[5].checked) {
+          document.area2.src = "images/ds.png";
+        }else if (radio[6].checked) {
+          document.area2.src = "images/e.png";
+        }else if (radio[7].checked) {
+          document.area2.src = "images/f.png";
+        }else if (radio[8].checked) {
+          document.area2.src = "images/fs.png";
+        }else if (radio[9].checked) {
+          document.area2.src = "images/g.png";
+        }else if (radio[10].checked) {
+          document.area2.src = "images/gs.png";
+        }else if (radio[11].checked) {
+          document.area2.src = "images/a.png";
+        }else if (radio[12].checked) {
+          document.area2.src = "images/as.png";
+        }
+      }
+      //string3
+      function putimg3(){
+        radio = document.getElementsByName('string3')
+        if(radio[1].checked){
+          document.area3.src = "images/g.png";
+        }else if (radio[2].checked) {
+          document.area3.src = "images/gs.png";
+        }else if (radio[3].checked) {
+          document.area3.src = "images/a.png";
+        }else if (radio[4].checked) {
+          document.area3.src = "images/as.png";
+        }else if (radio[5].checked) {
+          document.area3.src = "images/b.png";
+        }else if (radio[6].checked) {
+          document.area3.src = "images/c.png";
+        }else if (radio[7].checked) {
+          document.area3.src = "images/cs.png";
+        }else if (radio[8].checked) {
+          document.area3.src = "images/d.png";
+        }else if (radio[9].checked) {
+          document.area3.src = "images/ds.png";
+        }else if (radio[10].checked) {
+          document.area3.src = "images/e.png";
+        }else if (radio[11].checked) {
+          document.area3.src = "images/f.png";
+        }else if (radio[12].checked) {
+          document.area3.src = "images/fs.png";
+        }
+      }
+      //string4
+      function putimg4(){
+        radio = document.getElementsByName('string4')
+        if(radio[1].checked){
+          document.area4.src = "images/d.png";
+        }else if (radio[2].checked) {
+          document.area4.src = "images/ds.png";
+        }else if (radio[3].checked) {
+          document.area4.src = "images/e.png";
+        }else if (radio[4].checked) {
+          document.area4.src = "images/f.png";
+        }else if (radio[5].checked) {
+          document.area4.src = "images/fs.png";
+        }else if (radio[6].checked) {
+          document.area4.src = "images/g.png";
+        }else if (radio[7].checked) {
+          document.area4.src = "images/gs.png";
+        }else if (radio[8].checked) {
+          document.area4.src = "images/a.png";
+        }else if (radio[9].checked) {
+          document.area4.src = "images/as.png";
+        }else if (radio[10].checked) {
+          document.area4.src = "images/b.png";
+        }else if (radio[11].checked) {
+          document.area4.src = "images/c.png";
+        }else if (radio[12].checked) {
+          document.area4.src = "images/cs.png";
+        }
+      }
+      //string5
+      function putimg5(){
+        radio = document.getElementsByName('string5')
+        if(radio[1].checked){
+          document.area5.src = "images/a.png";
+        }else if (radio[2].checked) {
+          document.area5.src = "images/as.png";
+        }else if (radio[3].checked) {
+          document.area5.src = "images/b.png";
+        }else if (radio[4].checked) {
+          document.area5.src = "images/c.png";
+        }else if (radio[5].checked) {
+          document.area5.src = "images/cs.png";
+        }else if (radio[6].checked) {
+          document.area5.src = "images/d.png";
+        }else if (radio[7].checked) {
+          document.area5.src = "images/ds.png";
+        }else if (radio[8].checked) {
+          document.area5.src = "images/e.png";
+        }else if (radio[9].checked) {
+          document.area5.src = "images/f.png";
+        }else if (radio[10].checked) {
+          document.area5.src = "images/fs.png";
+        }else if (radio[11].checked) {
+          document.area5.src = "images/g.png";
+        }else if (radio[12].checked) {
+          document.area5.src = "images/gs.png";
+        }
+      }
+      //string6
+      function putimg6(){
+        radio = document.getElementsByName('string6')
+        if(radio[1].checked){
+          document.area6.src = "images/e.png";
+        }else if (radio[2].checked) {
+          document.area6.src = "images/f.png";
+        }else if (radio[3].checked) {
+          document.area6.src = "images/fs.png";
+        }else if (radio[4].checked) {
+          document.area6.src = "images/g.png";
+        }else if (radio[5].checked) {
+          document.area6.src = "images/gs.png";
+        }else if (radio[6].checked) {
+          document.area6.src = "images/a.png";
+        }else if (radio[7].checked) {
+          document.area6.src = "images/as.png";
+        }else if (radio[8].checked) {
+          document.area6.src = "images/b.png";
+        }else if (radio[9].checked) {
+          document.area6.src = "images/c.png";
+        }else if (radio[10].checked) {
+          document.area6.src = "images/cs.png";
+        }else if (radio[11].checked) {
+          document.area6.src = "images/d.png";
+        }else if (radio[12].checked) {
+          document.area6.src = "images/ds.png";
+        }
+      }
+
+    </script>
   </body>
 </html>
