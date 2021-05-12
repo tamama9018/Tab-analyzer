@@ -34,7 +34,6 @@
         padding-top:42px;
         text-align: center;
 
-
       }
       .table{
         border-spacing: 0;
@@ -51,11 +50,52 @@
       .neck-mobile{
         display:none;
       }
+      /*鍵盤*/
+      .key{
+        height:100%;
+        display:flex;
+        margin: 20px auto;
+        width:300px;
+
+
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .flet{
+
+        opacity: 10;
+        margin: 0 auto;
+        width:300px; /*divの幅を決める*/
+       height:150px;
+        text-align: center;
+      }
+
+      .string{
+        position: absolute;
+        opacity: 3;
+        z-index: 5;
+        width:300px;
+        height: 100px;
+        left:0;
+      }
+      .piano{
+        position: absolute;
+        opacity:3;
+        z-index: 1;
+        width:300px;
+        height: 100px;
+        left:0;
+      }
+
       .search{
         width:130px;
         margin: 0 auto;
         padding-left: 20px;
 
+      }
+      .searchbtn{
+        width:130px;
       }
 
 /*ラジオボタンの装飾
@@ -63,13 +103,14 @@
       .my-radio {
         position: relative;
         /*display: block; /* 縦並びに */
-        width:42px;
+        width:22px;
         height:25px;
         cursor: pointer;
         user-select: none;
         z-index: 3;
         display: inline-block;
-
+        text-align: center;
+        margin-right:20px;
       }
       label{
 
@@ -94,52 +135,27 @@
       .radio-mark:after {
         content: "";
         position: absolute;
-        background: #6E8CD1; /* 色 */
+        background: #EC5A1B; /* 色 */
         border-radius: 50%;
         top: 2px;
         bottom: 2px;
         left: 2px;
         right: 2px;
         opacity: 0; /* 透明にしておく */
-
       }
       /* 選択時に重ねた円の透明を解除 */
       .my-radio input:checked + .radio-mark:after {
         opacity: 1;
       }
 
-      /*鍵盤*/
-      .key{
-        height:100px;
-        display:flex;
-        width:800px;
-        margin:50px auto;
-      }
-      .flet{
-        position: relative;
-        opacity: 10;
-
-        width:350px; /*divの幅を決める*/
-        height:100%;
-        text-align: center;
-      }
-
-      .string{
-        position: absolute;
-        opacity: 3;
-        z-index: 5;
-        width:300px;
-      }
-      .piano{
-        position: absolute;
-        opacity:3;
-        z-index: 1;
-        width:300px;
-      }
 
 /*スマホ
 -------------------------------*/
   @media (max-width:800px) {
+    .conteinar{
+      display: flex;
+      overflow:hidden;
+    }
     body{
       text-align: center;
 
@@ -171,15 +187,9 @@
       width:200px;
       left:13%;
       height:790px;
-    }
-  /*  .search{
-    position: fixed;
+      margin-top:7px;
     }
 
-    .chord{
-      display: block;
-      margin-left: 300px;
-    }*/
 
     /*ラジオボタンの装飾
     ----------------------*/
@@ -192,9 +202,42 @@
       position: relative;
       padding-left: 28px;
       width:0;
-      height:60px;
+      height:26px;
+      margin-right: 0px;
+      margin-bottom: 34px;
     }
+    .key{
+      flex-direction: column;
+      width:140px;
+      text-align: center;
+      height:400px;
+    }
+    .flet{
+    width:100px;
+    position: fixed;
 
+    }
+    .piano{
+      width:100px;
+      height:30px;
+      padding-left: 30px;
+    }
+    .string{
+      width:100px;
+      height:30px;
+      padding-left: 30px;
+    }
+    .search{
+      margin-top: 80px;
+      margin-left: 0;
+      width:140px;
+      padding-left: 0;
+      position: fixed;
+    }
+    .searchbtn{
+      width:100px;
+      padding-left: 10px;
+    }
 /*弦の順番を左から6→1に変える
 ----------------------------*/
     .string1{
@@ -222,6 +265,7 @@
     <header>
       <img src="./images/Whatab.png" alt="logo">
    </header>
+   <div class="conteinar">
    <div class="neck">
     <form class="neck" action="" method="post">
     <div class="neck-wrapper">
@@ -405,6 +449,7 @@
   </div>
   </div>
   <div class="key">
+    <div class="piano-wrapper">
   <div class="flet">
     <img src="" name="area1" class="string">
   <img src="" name="area2" class="string">
@@ -415,9 +460,9 @@
 
   <img src="./images/piano.png" alt="piano" class="piano">
   </div>
-
+</div>
   <div class="search">
-   <input type="image" name="" src="./images/search.png" class="search">
+   <input type="image" name="" src="./images/search.png" class="searchbtn">
   <?php
     $string1 = $_POST['string1'];
     $string2 = $_POST['string2'];
@@ -456,6 +501,7 @@
    ?>
      </div>
    </div>
+ </div>
     </form>
     <script type="text/javascript">
     function putimg1(){
@@ -516,6 +562,8 @@
           document.area2.src = "images/a.png";
         }else if (radio[12].checked) {
           document.area2.src = "images/as.png";
+        }else if (radio[0].checked){
+          document.area2.src = "images/mute.png";
         }
       }
       //string3
@@ -545,6 +593,8 @@
           document.area3.src = "images/f.png";
         }else if (radio[12].checked) {
           document.area3.src = "images/fs.png";
+        }else if (radio[0].checked){
+          document.area3.src = "images/mute.png";
         }
       }
       //string4
@@ -574,6 +624,8 @@
           document.area4.src = "images/c.png";
         }else if (radio[12].checked) {
           document.area4.src = "images/cs.png";
+        }else if (radio[0].checked){
+          document.area4.src = "images/mute.png";
         }
       }
       //string5
@@ -603,6 +655,8 @@
           document.area5.src = "images/g.png";
         }else if (radio[12].checked) {
           document.area5.src = "images/gs.png";
+        }else if (radio[0].checked){
+          document.area5.src = "images/mute.png";
         }
       }
       //string6
@@ -632,6 +686,8 @@
           document.area6.src = "images/d.png";
         }else if (radio[12].checked) {
           document.area6.src = "images/ds.png";
+        }else if (radio[0].checked){
+          document.area6.src = "images/mute.png";
         }
       }
 

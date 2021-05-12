@@ -33,7 +33,7 @@ function showimg1(){
   function muteimg1(){
     radio = document.getElementsByName('string1')
     if(radio[0].checked){
-      document.area1.src = "images/mute.png";
+      document.area1.src = "./images/mute.png";
     }
   }
 
@@ -70,7 +70,7 @@ function showimg2(){
 function muteimg2(){
   radio = document.getElementsByName('string2')
   if(radio[0].checked){
-    document.area2.src = "images/mute.png";
+    document.area2.src = "./images/mute.png";
   }
 }
 
@@ -106,7 +106,7 @@ function showimg3(){
 function muteimg3(){
   radio = document.getElementsByName('string3')
   if(radio[0].checked){
-    document.area3.src = "images/mute.png";
+    document.area3.src = "./images/mute.png";
   }
 }
 
@@ -142,7 +142,7 @@ function showimg4(){
 function muteimg4(){
   radio = document.getElementsByName('string4')
   if(radio[0].checked){
-    document.area4.src = "images/mute.png";
+    document.area4.src = "./images/mute.png";
   }
 }
 //string5
@@ -177,7 +177,7 @@ function showimg5(){
 function muteimg5(){
   radio = document.getElementsByName('string5')
   if(radio[0].checked){
-    document.area5.src = "images/mute.png";
+    document.area5.src = "./images/mute.png";
   }
 }
 //string6
@@ -212,6 +212,6 @@ function showimg6(){
 function muteimg6(){
   radio = document.getElementsByName('string6')
   if(radio[0].checked){
-    document.area6.src = "images/mute.png";
+    document.area6.src = "./images/mute.png";
   }
 }
