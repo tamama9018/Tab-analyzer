@@ -2,7 +2,7 @@
 <html lang="ja" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Tab-analyzer</title>
+    <title>Whatab</title>
     <script src="pianotest.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
@@ -11,10 +11,18 @@
       .hidden{
         font-size: 0px;
       }
+      .chord{
+        font-size: 10px;
+      }
     /*header
     -------------------------------------*/
       header{
         margin: 10px;
+      }
+      h1{
+        padding:0;
+        margin: 0;
+        color:white;
       }
       header img{
         width:100px;
@@ -54,10 +62,8 @@
       .key{
         height:100%;
         display:flex;
-        margin: 20px auto;
-        width:300px;
-
-
+        margin: 20px auto 0 auto;
+        width:450px;
         justify-content: space-between;
         position: relative;
       }
@@ -67,7 +73,7 @@
         opacity: 10;
         margin: 0 auto;
         width:300px; /*divの幅を決める*/
-       height:150px;
+       height:100px;
         text-align: center;
       }
 
@@ -153,18 +159,23 @@
 -------------------------------*/
   @media (max-width:800px) {
     .conteinar{
-      display: flex;
-      overflow:hidden;
+      position: relative;
+
+      margin: 0;
+      padding: 0;
     }
     body{
       text-align: center;
-
+      margin: 0;
+      padding:0;
     }
     header img{
       width:100px;
     }
     header{
-      border-bottom: solid;
+
+      background-color: #EC5A1B;
+      margin:0;
     }
     .neck-wrapper{
       display:flex;
@@ -189,7 +200,9 @@
       height:790px;
       margin-top:7px;
     }
-
+    .neck{
+      padding-bottom: 80px;
+    }
 
     /*ラジオボタンの装飾
     ----------------------*/
@@ -207,36 +220,46 @@
       margin-bottom: 34px;
     }
     .key{
-      flex-direction: column;
-      width:140px;
-      text-align: center;
-      height:400px;
+     width:100%;
+     position:fixed;
+     bottom:0px;
+     height:100px;
+     background-color: #EC5A1B;
+     padding-top:10px;
+     margin: 0 auto;
+     z-index: 10;
+    }
+    .piano-wrapper{
+   position: relative;
+      height:70px;
+      margin: 0 auto;
     }
     .flet{
-    width:100px;
-    position: fixed;
 
+    width:200px;
+    height: 70px;
+    margin: 0 auto;
     }
     .piano{
-      width:100px;
-      height:30px;
-      padding-left: 30px;
+     width:200px;
+     height:70px;
+    position: absolute;
     }
     .string{
-      width:100px;
-      height:30px;
-      padding-left: 30px;
+    width:200px;
+    height:70px;
+    position: absolute;
     }
     .search{
-      margin-top: 80px;
-      margin-left: 0;
-      width:140px;
+      width:100px;
       padding-left: 0;
-      position: fixed;
+  margin:0 auto;
+  border-radius: 40px;
     }
     .searchbtn{
       width:100px;
-      padding-left: 10px;
+      background-color: white;
+      border-radius: 100px;
     }
 /*弦の順番を左から6→1に変える
 ----------------------------*/
@@ -263,7 +286,7 @@
   </head>
   <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
-      <img src="./images/Whatab.png" alt="logo">
+      <h1>whatab</h1>
    </header>
    <div class="conteinar">
    <div class="neck">
@@ -451,12 +474,12 @@
   <div class="key">
     <div class="piano-wrapper">
   <div class="flet">
-    <img src="" name="area1" class="string">
-  <img src="" name="area2" class="string">
-  <img src="" name="area3" class="string">
-  <img src="" name="area4" class="string">
-  <img src="" name="area5" class="string">
-  <img src="" name="area6" class="string">
+    <img src="" name="area1" id="area1" class="string">
+  <img src="" name="area2" id="area2" class="string">
+  <img src="" name="area3" id="area3" class="string">
+  <img src="" name="area4" id="area4" class="string">
+  <img src="" name="area5" id="area5" class="string">
+  <img src="" name="area6" id="area6" class="string">
 
   <img src="./images/piano.png" alt="piano" class="piano">
   </div>
@@ -503,6 +526,8 @@
    </div>
  </div>
     </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
     <script type="text/javascript">
     function putimg1(){
         radio = document.getElementsByName('string1')
@@ -691,6 +716,92 @@
         }
       }
 
+      $(function(){
+        var nowchecked = $('input[name="string1"]:checked').val();
+        $('input[name="string1"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string1"]').val(["101"]);
+            $('#area1').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+      $(function(){
+        var nowchecked = $('input[name="string2"]:checked').val();
+        $('input[name="string2"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string2"]').val(["102"]);
+            $('#area2').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+      $(function(){
+        var nowchecked = $('input[name="string3"]:checked').val();
+        $('input[name="string3"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string3"]').val(["103"]);
+            $('#area3').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+      $(function(){
+        var nowchecked = $('input[name="string4"]:checked').val();
+        $('input[name="string4"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string4"]').val(["104"]);
+            $('#area4').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+      $(function(){
+        var nowchecked = $('input[name="string5"]:checked').val();
+        $('input[name="string5"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string5"]').val(["105"]);
+            $('#area5').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+      $(function(){
+        var nowchecked = $('input[name="string6"]:checked').val();
+        $('input[name="string6"]').click(function(){
+          if($(this).val() == nowchecked){
+            $(this).prop('checked',false);
+            $('input:radio[name="string6"]').val(["106"]);
+            $('#area6').attr
+            ('src', './images/mute.png');
+            nowchecked = false;
+          }else{
+            nowchecked = $(this).val();
+          }
+        });
+      });
+
     </script>
+
   </body>
 </html>
