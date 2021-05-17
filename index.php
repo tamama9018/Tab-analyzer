@@ -8,40 +8,51 @@
     <style media="screen">
     /*共通部分
     -------------------------------------*/
+      body{
+        font-family: "Segoe UI";
+        background-color: #F5F5F5;
+      }
+
       .hidden{
         font-size: 0px;
       }
+      /*検索結果*/
       .chord{
-        font-size: 10px;
+        font-size: 16px;
+        color:#EC5A1B;
+        font-weight:bolder;
+        font-weight: 500;
+
       }
+
+
     /*header
     -------------------------------------*/
       header{
         margin: 10px;
+
       }
+
       h1{
         padding:0;
         margin: 0;
-        color:white;
+        color:#6E8CD1;
+        font-size: 36px;
+        font-weight:500;
       }
-      header img{
-        width:100px;
-      }
+
+
       /*headerより下
       ------------------------------*/
       .neck{
         height:100%;
       }
       .neck-wrapper{
-        /*display:flex;
-        align-items: strech;*/
-
         position: relative;
         margin:0 auto; /*中央よせ*/
         width:800px; /*divの幅を決める*/
         padding-top:42px;
         text-align: center;
-
       }
       .table{
         border-spacing: 0;
@@ -53,12 +64,14 @@
         left:10.5%;
         width:620px;
         height:180px;
-
       }
       .neck-mobile{
         display:none;
       }
-      /*鍵盤*/
+
+
+      /*鍵盤
+      -----------------------------*/
       .key{
         height:100%;
         display:flex;
@@ -101,8 +114,16 @@
 
       }
       .searchbtn{
+        border-style: none;
+        background-color: #EC5A1B;
+        color:#F5F5F5;
         width:130px;
+        padding: 8px;
+        font-weight: bolder;
+        font-size: 23px;
+        border-radius: 100px;
       }
+
 
 /*ラジオボタンの装飾
 -------------------------------------*/
@@ -118,9 +139,7 @@
         text-align: center;
         margin-right:20px;
       }
-      label{
 
-      }
       /* inputは非表示にする */
       .my-radio input {
         display: none;
@@ -141,7 +160,7 @@
       .radio-mark:after {
         content: "";
         position: absolute;
-        background: #EC5A1B; /* 色 */
+        background: #6E8CD1; /* 色 */
         border-radius: 50%;
         top: 2px;
         bottom: 2px;
@@ -157,10 +176,9 @@
 
 /*スマホ
 -------------------------------*/
-  @media (max-width:800px) {
+  @media (max-width:650px) {
     .conteinar{
       position: relative;
-
       margin: 0;
       padding: 0;
     }
@@ -169,14 +187,22 @@
       margin: 0;
       padding:0;
     }
+
+    /*header
+    -----------------*/
     header img{
       width:100px;
     }
     header{
-
+      border-bottom: 3px solid #EC5A1B;
       background-color: #EC5A1B;
       margin:0;
     }
+    h1{
+      color:#F5F5F5;
+    }
+    /*headerより下
+    -----------------*/
     .neck-wrapper{
       display:flex;
       align-items: stretch;/*ラジオボタンを縦にする*/
@@ -219,6 +245,9 @@
       margin-right: 0px;
       margin-bottom: 34px;
     }
+
+    /*鍵盤
+    --------------*/
     .key{
      width:100%;
      position:fixed;
@@ -235,10 +264,11 @@
       margin: 0 auto;
     }
     .flet{
-
     width:200px;
     height: 70px;
     margin: 0 auto;
+    background-color: #EC5A1B;
+
     }
     .piano{
      width:200px;
@@ -257,9 +287,13 @@
   border-radius: 40px;
     }
     .searchbtn{
-      width:100px;
-      background-color: white;
-      border-radius: 100px;
+    width:100px;
+    background-color: #F5F5F5;
+    color:#EC5A1B;
+    }
+    .chord{
+    color:#F5F5F5;
+
     }
 /*弦の順番を左から6→1に変える
 ----------------------------*/
@@ -286,22 +320,22 @@
   </head>
   <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
-      <h1>whatab</h1>
+      <h1>Whatab</h1>
    </header>
    <div class="conteinar">
    <div class="neck">
-    <form class="neck" action="" method="post">
+    <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
     <table >
 
 
           <?php
-          $st1s = [101, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3];
-          $st2s = [102, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-          $st3s = [103, 7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6];
-          $st4s = [104, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1];
-          $st5s = [105, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8];
-          $st6s = [106, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3];
+          $st1s = [101, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4];
+          $st2s = [102, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+          $st3s = [103, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7];
+          $st4s = [104, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+          $st5s = [105, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+          $st6s = [106, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4];
           ?>
           <tr>
             <div class="string1">
@@ -485,7 +519,7 @@
   </div>
 </div>
   <div class="search">
-   <input type="image" name="" src="./images/search.png" class="searchbtn">
+   <button type="submit" class="searchbtn">What?</button>
   <?php
     $string1 = $_POST['string1'];
     $string2 = $_POST['string2'];
@@ -518,7 +552,11 @@
     $o = str_replace('[',' ',$o);
     $o = str_replace(']',' ',$o);
     $o = str_replace("'",'',$o);
+    if($o== 0){
+      echo " ";
+    }else{
      echo "<span class=chord>{$o}</span>";
+   }
    }
 
    ?>
