@@ -5,324 +5,55 @@
     <title>Whatab</title>
     <script src="pianotest.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style media="screen">
-    /*共通部分
-    -------------------------------------*/
-      body{
-        font-family: "Segoe UI";
-        background-color: #F5F5F5;
-      }
-
-      .hidden{
-        font-size: 0px;
-      }
-      /*検索結果*/
-      .chord{
-        font-size: 16px;
-        color:#EC5A1B;
-        font-weight:bolder;
-        font-weight: 500;
-
-      }
-
-
-    /*header
-    -------------------------------------*/
-      header{
-        margin: 10px;
-
-      }
-
-      h1{
-        padding:0;
-        margin: 0;
-        color:#6E8CD1;
-        font-size: 36px;
-        font-weight:500;
-      }
-
-
-      /*headerより下
-      ------------------------------*/
-      .neck{
-        height:100%;
-      }
-      .neck-wrapper{
-        position: relative;
-        margin:0 auto; /*中央よせ*/
-        width:800px; /*divの幅を決める*/
-        padding-top:42px;
-        text-align: center;
-      }
-      .table{
-        border-spacing: 0;
-      }
-      .absolute{
-        position: absolute;
-        top:0;
-        z-index: 0;
-        left:10.5%;
-        width:620px;
-        height:180px;
-      }
-      .neck-mobile{
-        display:none;
-      }
-
-
-      /*鍵盤
-      -----------------------------*/
-      .key{
-        height:100%;
-        display:flex;
-        margin: 20px auto 0 auto;
-        width:450px;
-        justify-content: space-between;
-        position: relative;
-      }
-
-      .flet{
-
-        opacity: 10;
-        margin: 0 auto;
-        width:300px; /*divの幅を決める*/
-       height:100px;
-        text-align: center;
-      }
-
-      .string{
-        position: absolute;
-        opacity: 3;
-        z-index: 5;
-        width:300px;
-        height: 100px;
-        left:0;
-      }
-      .piano{
-        position: absolute;
-        opacity:3;
-        z-index: 1;
-        width:300px;
-        height: 100px;
-        left:0;
-      }
-
-      .search{
-        width:130px;
-        margin: 0 auto;
-        padding-left: 20px;
-
-      }
-      .searchbtn{
-        border-style: none;
-        background-color: #EC5A1B;
-        color:#F5F5F5;
-        width:130px;
-        padding: 8px;
-        font-weight: bolder;
-        font-size: 23px;
-        border-radius: 100px;
-      }
-
-
-/*ラジオボタンの装飾
--------------------------------------*/
-      .my-radio {
-        position: relative;
-        /*display: block; /* 縦並びに */
-        width:22px;
-        height:25px;
-        cursor: pointer;
-        user-select: none;
-        z-index: 3;
-        display: inline-block;
-        text-align: center;
-        margin-right:20px;
-      }
-
-      /* inputは非表示にする */
-      .my-radio input {
-        display: none;
-
-      }
-      /* 常に表示する枠線の円 */
-      .radio-mark {
-        position: absolute;
-        top: 0; /* 上からの位置 */
-        left: 0;
-        height: 22px; /* 大きさ */
-        width: 22px; /* 大きさ */
-        border: solid 0px #d4dae2; /* 線 */
-        border-radius: 50%;
-        box-sizing: border-box;
-      }
-      /* 選択時に重ねる円 */
-      .radio-mark:after {
-        content: "";
-        position: absolute;
-        background: #6E8CD1; /* 色 */
-        border-radius: 50%;
-        top: 2px;
-        bottom: 2px;
-        left: 2px;
-        right: 2px;
-        opacity: 0; /* 透明にしておく */
-      }
-      /* 選択時に重ねた円の透明を解除 */
-      .my-radio input:checked + .radio-mark:after {
-        opacity: 1;
-      }
-
-
-/*スマホ
--------------------------------*/
-  @media (max-width:650px) {
-    .conteinar{
-      position: relative;
-      margin: 0;
-      padding: 0;
-    }
-    body{
-      text-align: center;
-      margin: 0;
-      padding:0;
-    }
-
-    /*header
-    -----------------*/
-    header img{
-      width:100px;
-    }
-    header{
-      border-bottom: 3px solid #EC5A1B;
-      background-color: #EC5A1B;
-      margin:0;
-    }
-    h1{
-      color:#F5F5F5;
-    }
-    /*headerより下
-    -----------------*/
-    .neck-wrapper{
-      display:flex;
-      align-items: stretch;/*ラジオボタンを縦にする*/
-      position: relative;
-     justify-content: center;/*ラジオボタンを中央よせ*/
-     width:200px;/*divの幅を決める*/
-     text-align: center;
-     height:750px;
-    }
-    .absolute{
-      display: none;
-      position: absolute;
-    }
-    .neck-mobile{
-      display: block;
-      position: absolute;
-      top:20px;
-      z-index: 0;
-      width:200px;
-      left:13%;
-      height:790px;
-      margin-top:7px;
-    }
-    .neck{
-      padding-bottom: 80px;
-    }
-
-    /*ラジオボタンの装飾
-    ----------------------*/
-    .radio-mark{
-      height: 26px; /* 大きさ */
-      width: 26px;
-    }
-    .my-radio{
-      display: block;
-      position: relative;
-      padding-left: 28px;
-      width:0;
-      height:26px;
-      margin-right: 0px;
-      margin-bottom: 34px;
-    }
-
-    /*鍵盤
-    --------------*/
-    .key{
-     width:100%;
-     position:fixed;
-     bottom:0px;
-     height:100px;
-     background-color: #EC5A1B;
-     padding-top:10px;
-     margin: 0 auto;
-     z-index: 10;
-    }
-    .piano-wrapper{
-   position: relative;
-      height:70px;
-      margin: 0 auto;
-    }
-    .flet{
-    width:200px;
-    height: 70px;
-    margin: 0 auto;
-    background-color: #EC5A1B;
-
-    }
-    .piano{
-     width:200px;
-     height:70px;
-    position: absolute;
-    }
-    .string{
-    width:200px;
-    height:70px;
-    position: absolute;
-    }
-    .search{
-      width:100px;
-      padding-left: 0;
-  margin:0 auto;
-  border-radius: 40px;
-    }
-    .searchbtn{
-    width:100px;
-    background-color: #F5F5F5;
-    color:#EC5A1B;
-    }
-    .chord{
-    color:#F5F5F5;
-
-    }
-/*弦の順番を左から6→1に変える
-----------------------------*/
-    .string1{
-      order:6;
-    }
-    .string2{
-      order:5;
-    }
-    .string3{
-      order:4;
-    }
-    .string4{
-      order:3;
-    }
-    .string5{
-      order:2;
-    }
-    .string6{
-      order:1;
-    }
-  }
-    </style>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
       <h1>Whatab</h1>
    </header>
    <div class="conteinar">
+     <div class="answer">
+       <?php
+         $string1 = $_POST['string1'];
+         $string2 = $_POST['string2'];
+         $string3 = $_POST['string3'];
+         $string4 = $_POST['string4'];
+         $string5 = $_POST['string5'];
+         $string6 = $_POST['string6'];
+
+         $strings = [];
+         $strings[] = (int)$string1;
+         $strings[] = (int)$string2;
+         $strings[] = (int)$string3;
+         $strings[] = (int)$string4;
+         $strings[] = (int)$string5;
+         $strings[] = (int)$string6;
+
+         $target = $strings;
+         $result = array_diff($target, array('101','102','103','104','105','106'));
+         $result = array_values($result);
+         $space = " ";
+
+         $r =implode($space,$result);
+
+
+        $command = "python src/main.py ${r}";
+        putenv("PYTHONUTF8=1");
+        exec($command, $output);
+        foreach ($output as $o) {
+          // code...
+         $o = str_replace('[',' ',$o);
+         $o = str_replace(']',' ',$o);
+         $o = str_replace("'",'',$o);
+         if($o== 0){
+           echo " ";
+         }else{
+          echo "<span class=chord>{$o}</span>";
+        }
+        }
+
+        ?>
+     </div>
    <div class="neck">
     <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
@@ -503,8 +234,10 @@
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
 
 
+
   </div>
   </div>
+
   <div class="key">
     <div class="piano-wrapper">
   <div class="flet">
@@ -520,49 +253,17 @@
 </div>
   <div class="search">
    <button type="submit" class="searchbtn">What?</button>
-  <?php
-    $string1 = $_POST['string1'];
-    $string2 = $_POST['string2'];
-    $string3 = $_POST['string3'];
-    $string4 = $_POST['string4'];
-    $string5 = $_POST['string5'];
-    $string6 = $_POST['string6'];
 
-    $strings = [];
-    $strings[] = (int)$string1;
-    $strings[] = (int)$string2;
-    $strings[] = (int)$string3;
-    $strings[] = (int)$string4;
-    $strings[] = (int)$string5;
-    $strings[] = (int)$string6;
-
-    $target = $strings;
-    $result = array_diff($target, array('101','102','103','104','105','106'));
-    $result = array_values($result);
-    $space = " ";
-
-    $r =implode($space,$result);
-
-
-   $command = "python src/main.py ${r}";
-   putenv("PYTHONUTF8=1");
-   exec($command, $output);
-   foreach ($output as $o) {
-     // code...
-    $o = str_replace('[',' ',$o);
-    $o = str_replace(']',' ',$o);
-    $o = str_replace("'",'',$o);
-    if($o== 0){
-      echo " ";
-    }else{
-     echo "<span class=chord>{$o}</span>";
-   }
-   }
-
-   ?>
      </div>
    </div>
  </div>
+ <center>
+  <div class="sosyal">
+    <a href="https://www.facebook.com/sharer/sharer.php" class="facebook">Facebook</a>
+    <a href="https://twitter.com/intent/tweet" class="twitter">Twitter</a>
+
+    </div>
+</center>
     </form>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
     </script>

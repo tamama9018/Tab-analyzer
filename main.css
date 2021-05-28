@@ -1,0 +1,381 @@
+/*共通部分
+-------------------------------------*/
+  body{
+    font-family: "Segoe UI","YuGothic", "游ゴシック体", sans-serif;
+    background-color: #F5F5F5;
+  }
+
+  .hidden{
+    font-size: 0px;
+  }
+  /*検索結果*/
+  .chord{
+    font-size: 16px;
+    color:#EC5A1B;
+    font-weight:bolder;
+    font-weight: 500;
+  }
+
+
+/*header
+-------------------------------------*/
+  header{
+    margin: 10px;
+
+  }
+
+  h1{
+    padding:0;
+    margin: 0;
+    color:#6E8CD1;
+    font-size: 36px;
+    font-weight:500;
+  }
+
+
+  /*headerより下
+  ------------------------------*/
+  .neck{
+    height:100%;
+  }
+  .neck-wrapper{
+    position: relative;
+    margin:0 auto; /*中央よせ*/
+    width:800px; /*divの幅を決める*/
+    padding-top:42px;
+    text-align: center;
+  }
+  .table{
+    border-spacing: 0;
+  }
+  .absolute{
+    position: absolute;
+    top:0;
+    z-index: 0;
+    left:10.5%;
+    width:620px;
+    height:180px;
+    filter: contrast(95%);
+  }
+  .neck-mobile{
+    display:none;
+  }
+
+
+  /*鍵盤
+  -----------------------------*/
+  .key{
+    height:100%;
+    display:flex;
+    margin: 20px auto 0 auto;
+    width:450px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .flet{
+
+    opacity: 10;
+    margin: 0 auto;
+    width:300px; /*divの幅を決める*/
+   height:100px;
+    text-align: center;
+  }
+
+  .string{
+    position: absolute;
+    opacity: 3;
+    z-index: 5;
+    width:300px;
+    height: 100px;
+    left:0;
+    filter: contrast(93%) saturate(98%);
+  }
+  .piano{
+    position: absolute;
+    opacity:3;
+    z-index: 1;
+    width:300px;
+    height: 100px;
+    left:0;
+    filter: contrast(93%) saturate(98%);
+  }
+
+  .search{
+    width:130px;
+    margin: 0 auto;
+    padding-left: 20px;
+
+  }
+  .searchbtn{
+    border-style: none;
+    background-color: #EC5A1B;
+    color:#F5F5F5;
+    width:130px;
+    padding: 8px;
+    font-weight: bolder;
+    font-size: 23px;
+    border-radius: 100px;
+  }
+
+
+/*ラジオボタンの装飾
+-------------------------------------*/
+  .my-radio {
+    position: relative;
+    /*display: block; /* 縦並びに */
+    width:22px;
+    height:25px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 3;
+    display: inline-block;
+    text-align: center;
+    margin-right:20px;
+  }
+
+  /* inputは非表示にする */
+  .my-radio input {
+    display: none;
+
+  }
+  /* 常に表示する枠線の円 */
+  .radio-mark {
+    position: absolute;
+    top: 0; /* 上からの位置 */
+    left: 0;
+    height: 22px; /* 大きさ */
+    width: 22px; /* 大きさ */
+    border: solid 0px #d4dae2; /* 線 */
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+  /* 選択時に重ねる円 */
+  .radio-mark:after {
+    content: "";
+    position: absolute;
+    background: #6E8CD1; /* 色 */
+    border-radius: 50%;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    opacity: 0; /* 透明にしておく */
+  }
+  /* 選択時に重ねた円の透明を解除 */
+  .my-radio input:checked + .radio-mark:after {
+    opacity: 1;
+  }
+
+  /*シェアボタン
+  -------------*/
+
+.sosyal {
+  margin: 50px auto;
+}
+.facebook {
+  background-color: #2e4a88;
+  box-shadow: 0 4px 0 #1B3D82;
+  text-shadow: 0 -1px -1px #1B3D82;
+
+  display: inline;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+}
+.facebook:hover {
+  background-color: #354F84;
+}
+.facebook:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #1B3D82;
+}
+.twitter {
+  background-color: #008DDE;
+  box-shadow: 0 4px 0 #0078BD;
+
+  display: inline;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+}
+.twitter:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #0078BD;
+}
+.twitter:hover {
+  background-color: #1397D8;
+}
+
+
+/*スマホ
+-------------------------------*/
+@media (max-width:650px) {
+.conteinar{
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding:0;
+  text-align: center;
+}
+
+/*header
+-----------------*/
+header img{
+  width:100px;
+}
+header{
+  border-bottom: 3px solid #EC5A1B;
+  background-color: #EC5A1B;
+  margin:0;
+}
+h1{
+  color:#F5F5F5;
+}
+/*headerより下
+-----------------*/
+.neck-wrapper{
+  display:flex;
+  align-items: stretch;/*ラジオボタンを縦にする*/
+  position: relative;
+ justify-content: center;/*ラジオボタンを中央よせ*/
+ width:200px;/*divの幅を決める*/
+ text-align: center;
+ height:750px;
+}
+.absolute{
+  display: none;
+  position: absolute;
+}
+.neck-mobile{
+  display: block;
+  position: absolute;
+  top:20px;
+  z-index: 0;
+  width:200px;
+  left:13%;
+  height:790px;
+  margin-top:7px;
+  filter: contrast(95%);
+}
+.neck{
+  padding-bottom: 10px;
+}
+
+/*ラジオボタンの装飾
+----------------------*/
+.radio-mark{
+  height: 26px; /* 大きさ */
+  width: 26px;
+}
+.my-radio{
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  width:0;
+  height:26px;
+  margin-right: 0px;
+  margin-bottom: 34px;
+}
+
+/*鍵盤
+--------------*/
+.key{
+ width:100%;
+ position:fixed;
+ bottom:0px;
+ height:80px;
+ background-color: #EC5A1B;
+ padding-top:10px;
+ margin: 0 auto;
+ z-index: 10;
+
+}
+.piano-wrapper{
+position: relative;
+  height:70px;
+  margin: 0 auto;
+}
+.flet{
+width:200px;
+height: 70px;
+margin: 0 auto;
+background-color: #EC5A1B;
+
+}
+.piano{
+ width:200px;
+ height:70px;
+position: absolute;
+}
+.string{
+width:200px;
+height:70px;
+position: absolute;
+}
+.search{
+  width:130px;
+  padding-left: 0;
+margin:0 auto;
+border-radius: 40px;
+}
+.searchbtn{
+width:100px;
+background-color: #F2F2F2;
+color:#EC5A1B;
+margin-top: 10px
+}
+.chord{
+  display: inline-block;
+font-size: 14px;
+overflow-wrap:break-word;
+width:80px;
+}
+.answer{
+
+  border-bottom:2px solid #EC5A1B;
+  text-align: center;
+
+}
+
+/*シェアボタン
+----------------*/
+.sosyal{
+  padding-bottom: 70px;
+}
+/*弦の順番を左から6→1に変える
+----------------------------*/
+.string1{
+  order:6;
+}
+.string2{
+  order:5;
+}
+.string3{
+  order:4;
+}
+.string4{
+  order:3;
+}
+.string5{
+  order:2;
+}
+.string6{
+  order:1;
+}
+}
