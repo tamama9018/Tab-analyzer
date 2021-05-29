@@ -18,7 +18,7 @@ def codemaker(keys):
     codenames = []
 
     if length < 2:
-        return
+        return ''
 
     if length == 2:
         for keys in rotate(keys):
