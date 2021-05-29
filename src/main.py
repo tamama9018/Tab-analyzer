@@ -9,5 +9,5 @@ if __name__ == "__main__":
     for key in input_keys:
         if key != '0':
             keys.append(int(key)-1)
-  #  keys = [int(key) for key in keys]
+
     print(codemaker(keys))
