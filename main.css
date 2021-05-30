@@ -1,7 +1,7 @@
 /*共通部分
 -------------------------------------*/
   body{
-    font-family: "Segoe UI","YuGothic", "游ゴシック体", sans-serif;
+    font-family: "Segoe UI",'Hiragino Kaku Gothic ProN', "ヒラギノ角ゴ ProN","YuGothic", "游ゴシック体", sans-serif;
     background-color: #F5F5F5;
   }
 
@@ -11,7 +11,7 @@
   /*検索結果*/
   .chord{
     font-size: 16px;
-    color:#EC5A1B;
+    /*color:#EC5A1B;*/
     font-weight:bolder;
     font-weight: 500;
   }
@@ -187,7 +187,7 @@
   text-decoration: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 }
 .facebook:hover {
   background-color: #354F84;
@@ -209,7 +209,7 @@
   text-decoration: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 }
 .twitter:active {
   top: 2px;
@@ -344,7 +344,9 @@ margin-top: 10px
   display: inline-block;
 font-size: 14px;
 overflow-wrap:break-word;
-width:80px;
+width:300px;
+padding: 7px;
+line-height: 20px;
 }
 .answer{
 
