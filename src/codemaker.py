@@ -18,7 +18,7 @@ def codemaker(keys):
     codenames = []
 
     if length < 2:
-        return keys
+        return ''
 
     if length == 2:
         for keys in rotate(keys):
@@ -61,7 +61,6 @@ def codemaker(keys):
         root_codename = five_code(keys[1:])
         if type(root_codename) is str:      
             codenames += [f'{root_codename}/{number_to_char(root)}']   
-
 
     codenames = sorted(list(set(codenames)))
     codenames = code_rename(codenames)
