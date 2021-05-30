@@ -259,8 +259,8 @@
  </div>
  <center>
   <div class="sosyal">
-    <a href="https://www.facebook.com/sharer/sharer.php" class="facebook">Facebook</a>
-    <a href="https://twitter.com/intent/tweet" class="twitter">Twitter</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={https://whatab.herokuapp.com}" class="facebook">Facebook</a>
+    <a href="https://twitter.com/intent/tweet?url={https://whatab.herokuapp.com}" class="twitter">Twitter</a>
 
     </div>
 </center>
