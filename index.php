@@ -5,14 +5,15 @@
     <title>Whatab</title>
     <script src="pianotest.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
   </head>
   <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
       <h1>Whatab</h1>
    </header>
    <div class="conteinar">
-     <div class="answer">
+     <div class="answer" id="app"  v-bind:class="{compact: scrollY > 50}">
        <?php
          $string1 = $_POST['string1'];
          $string2 = $_POST['string2'];
@@ -48,15 +49,20 @@
          if($o== 0){
            echo " ";
          }else{
-          echo "<span class=chord>{$o}</span>";
+          echo "<span class='chord'>{$o}</span>";
         }
         }
 
         ?>
      </div>
+     <div class="buttons">
+     <a href="index.php" onclick="muteSet()" class="muteSet">mute</a>
+     </div>
+
    <div class="neck">
     <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
+
     <table >
 
 
@@ -69,6 +75,7 @@
           $st6s = [106, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4];
           ?>
           <tr>
+
             <div class="string1">
           <?php foreach ($st1s as $st1): ?>
 
@@ -254,19 +261,21 @@
   <div class="search">
    <button type="submit" class="searchbtn">What?</button>
 
+
      </div>
    </div>
  </div>
  <center>
   <div class="sosyal">
-    <a href="https://www.facebook.com/sharer/sharer.php?u={https://whatab.herokuapp.com}" class="facebook">Facebook</a>
-    <a href="https://twitter.com/intent/tweet?url={https://whatab.herokuapp.com}" class="twitter">Twitter</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwhatab.herokuapp.com" class="facebook">Facebook</a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwhatab.herokuapp.com" class="twitter">Twitter</a>
 
     </div>
 </center>
     </form>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script type="text/javascript">
     function putimg1(){
         radio = document.getElementsByName('string1')
@@ -454,8 +463,8 @@
           document.area6.src = "images/mute.png";
         }
       }
-
-      $(function(){
+    $(function muteSet(){
+      $(function (){
         var nowchecked = $('input[name="string1"]:checked').val();
         $('input[name="string1"]').click(function(){
           if($(this).val() == nowchecked){
@@ -539,7 +548,32 @@
           }
         });
       });
+    });
 
+    new Vue({
+      el: '#app',
+      data:{
+        scrollY:0,
+        timer:null
+      },
+      created:function(){
+        window.addEventListener('scroll', this.handleScroll)
+      },
+      beforeDestroy: function(){
+        window.removeEventListener('scroll', this.handleScroll)
+      },
+      methods: {
+        handleScroll: function(){
+          if(this.timer ===null){
+            this.timer = setTimeout(function(){
+            this.scrollY = window.scrollY
+            clearTimeout(this.timer)
+            this.timer = null
+          }.bind(this),200)
+        }
+        }
+      }
+    })
     </script>
 
   </body>
