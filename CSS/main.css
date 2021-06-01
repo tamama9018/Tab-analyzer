@@ -1,7 +1,7 @@
 /*共通部分
 -------------------------------------*/
   body{
-    font-family: "Segoe UI",'Hiragino Kaku Gothic ProN', "ヒラギノ角ゴ ProN","YuGothic", "游ゴシック体", sans-serif;
+    font-family: 'Segoe UI','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN','YuGothic', '游ゴシック体', sans-serif;
     background-color: #F5F5F5;
   }
 
@@ -12,8 +12,7 @@
   .chord{
     font-size: 16px;
     /*color:#EC5A1B;*/
-    font-weight:bolder;
-    font-weight: 500;
+    font-weight:600;
   }
 
 
@@ -29,7 +28,7 @@
     margin: 0;
     color:#6E8CD1;
     font-size: 36px;
-    font-weight:500;
+    font-weight:700;
   }
 
 
@@ -276,6 +275,16 @@ h1{
 .neck{
   padding-bottom: 10px;
 }
+.buttons{
+  position: absolute;
+  top:0px;
+  display: flex;
+}
+.muteSet{
+  display: block;
+  z-index:100;
+
+}
 
 /*ラジオボタンの装飾
 ----------------------*/
@@ -299,7 +308,7 @@ h1{
  width:100%;
  position:fixed;
  bottom:0px;
- height:80px;
+ height:90px;
  background-color: #EC5A1B;
  padding-top:10px;
  margin: 0 auto;
@@ -348,10 +357,19 @@ width:300px;
 padding: 7px;
 line-height: 20px;
 }
-.answer{
 
+.answer{
   border-bottom:2px solid #EC5A1B;
   text-align: center;
+
+}
+.compact{
+  position: fixed;
+  top:0;
+  z-index: 10;
+  width:100%;
+  margin:0 auto;
+  background-color: #F5F5F5;
 
 }
 
