@@ -55,13 +55,19 @@
 
         ?>
      </div>
-     <div class="buttons">
-     <a href="index.php" onclick="muteSet()" class="muteSet">mute</a>
-     </div>
+
+
 
    <div class="neck">
+     <div id="modal">
+       <button type="button" @click="openModal">Manual</button>
+     <open-modal v-show="showContent" @close="showContent = false"></open-modal>
+   </div>
+
+
     <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
+
 
     <table >
 
@@ -239,7 +245,9 @@
     </table>
     <img src="./images/neck.png" alt="" class="absolute">
     <img src="./images/neck_stand.png" alt="" class="neck-mobile">
-
+    <div class="buttons">
+    <a href="index.php" onclick="muteSet()" class="mute-button">MUTE</a>
+    </div>
 
 
   </div>
@@ -272,7 +280,10 @@
 
     </div>
 </center>
+
     </form>
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -463,8 +474,8 @@
           document.area6.src = "images/mute.png";
         }
       }
-    $(function muteSet(){
-      $(function (){
+
+      $(function muteSet(){
         var nowchecked = $('input[name="string1"]:checked').val();
         $('input[name="string1"]').click(function(){
           if($(this).val() == nowchecked){
@@ -548,7 +559,7 @@
           }
         });
       });
-    });
+
 
     new Vue({
       el: '#app',
@@ -574,6 +585,64 @@
         }
       }
     })
+
+    var Modal = new Vue({
+      el: '#modal',
+      data(){
+        return {
+          showContent: false,
+        }
+      },
+      methods: {
+        openModal: function(){
+          this.showContent = true;
+        },
+        closeModal: function(){
+          this.showContent = false;
+        }
+      }
+    })
+
+    Vue.component('open-modal', {
+      template:`
+      <div class="overlay">
+      <div class="content-space">
+      <div class="manual">
+        <button type="button" v-on:click="$emit('close')">close</button>
+        <p class="m-title"><strong>Whatab</strong> <span class="m-title-mini">Manual</span></p>
+        <p class="bar">About</p>
+        <p class="content">これはあなたが手にする新しいギア。快適な作曲活動を始めましょう。</p>
+        <p class="bar">Function</p>
+        <img src="./images/manual.png" alt="manual">
+        <table class="function">
+          <tr>
+            <th colspan="2">Control</th>
+          </tr>
+          <tr>
+            <td class="control">①Mute-Button</td>
+            <td class="control-content">選択済みのポジションが全てMUTEの位置に戻ります</td>
+          </tr>
+          <tr>
+            <td class="control">②Double-Click</td>
+            <td class="control-content">選択済みのポジションをクリックすると、そのマークがMUTEの位置に戻ります。</td>
+          </tr>
+          <tr>　
+            <td class="control">③Keyboard</td>
+            <td class="control-content">フレットを選択すると、その音がピアノのどの位置に当たるかを表示します。※オクターブには対応していません。</td>
+          </tr>
+          <tr>
+            <td class="control">④What-Button</td>
+            <td class="control-content">ここをクリックするとコードが表示されます。</td>
+          </tr>
+        </table>
+        <p class="bar">Biography</p>
+        <p class="content">こんにちは！私たちはQuentinです。日本でバンドとして音楽を作っています。<br>
+        </p>
+      </div>
+      </div>
+      </div>
+      `,
+    });
     </script>
 
   </body>
