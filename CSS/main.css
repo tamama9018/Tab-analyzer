@@ -1,7 +1,7 @@
 /*共通部分
 -------------------------------------*/
   body{
-    font-family: 'Segoe UI','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN','YuGothic', '游ゴシック', sans-serif;
+    font-family: 'Segoe UI','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN','YuGothic Medium', '游ゴシック Medium', sans-serif;
     background-color: #F5F5F5;
   }
 
@@ -20,7 +20,8 @@
 -------------------------------------*/
   header{
     margin: 10px;
-
+    display: flex;
+    justify-content: space-between;
   }
 
   h1{
@@ -31,17 +32,23 @@
     font-weight:700;
   }
 
+  #modal{
+    padding: 0;
+    margin: 0;
+
+  }
 
 
 
-  /*headerより下(manual)
+  /*manual
   ------------------------------*/
+
 
   .content-space {
     z-index:100;
-    width: 90%;
+    width: 50%;
     padding: 1em;
-    height:580px;
+    height:500px;
     overflow: auto;
   }
 
@@ -61,6 +68,12 @@
     background-color: #E4E4E4;
     text-align: left;
 
+  }
+
+  .manual-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #4B4B4B;
   }
   .m-title{
     background-color: #4B4B4B;
@@ -85,8 +98,8 @@
     padding-left: 10px;
   }
   .manual img{
-    width: 280px;
-    margin-left: 20%;
+    width: 80%;
+    margin-left: 10%;
   }
   .function{
     font-size: 10px;
@@ -101,6 +114,7 @@
 
   }
 
+
   .control{
     background-color: #D1D1D1;
     font-weight: bolder;
@@ -112,6 +126,7 @@
     border-top: 1px solid #707070;
     border-bottom: 1px solid #707070;
   }
+
 
   /*neck------
   --------------*/
@@ -336,6 +351,10 @@ header{
 }
 h1{
   color:#F5F5F5;
+}
+
+.content-space{
+  width:90%;
 }
 /*headerより下
 -----------------*/
