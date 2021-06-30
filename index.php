@@ -10,7 +10,12 @@
   </head>
   <body onload="putimg1(),putimg2(),putimg3(),putimg4(),putimg5(),putimg6()">
     <header>
+      <p>manual</p>
       <h1>Whatab</h1>
+      <div id="modal">
+        <button type="button" @click="openModal">Manual</button>
+      <open-modal v-show="showContent" @close="showContent = false"></open-modal>
+    </div>
    </header>
    <div class="conteinar">
      <div class="answer" id="app"  v-bind:class="{compact: scrollY > 50}">
@@ -56,21 +61,11 @@
         ?>
      </div>
 
-
-
    <div class="neck">
-     <div id="modal">
-       <button type="button" @click="openModal">Manual</button>
-     <open-modal v-show="showContent" @close="showContent = false"></open-modal>
-   </div>
-
-
     <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
 
-
     <table >
-
 
           <?php
           $st1s = [101, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4];
@@ -608,12 +603,14 @@
       <div class="overlay">
       <div class="content-space">
       <div class="manual">
-        <button type="button" v-on:click="$emit('close')">close</button>
+        <div class="manual-header">
         <p class="m-title"><strong>Whatab</strong> <span class="m-title-mini">Manual</span></p>
+        <button type="button" v-on:click="$emit('close')">close</button>
+        </div>
         <p class="bar">About</p>
         <p class="content">これはあなたが手にする新しいギア。快適な作曲活動を始めましょう。</p>
         <p class="bar">Function</p>
-        <img src="./images/manual.png" alt="manual">
+        <img src="./images/manual-image.png" alt="manual" class="manual-image">
         <table class="function">
           <tr>
             <th colspan="2">Control</th>
@@ -637,7 +634,7 @@
         </table>
         <p class="bar">Biography</p>
         <p class="content">こんにちは！私たちはQuentinです。日本でバンドとして音楽を作っています。<br>
-        </p>
+        pnn</p>
       </div>
       </div>
       </div>
