@@ -14,6 +14,7 @@
   <body onload="putImg1(),putImg2(),putImg3(),putImg4(),putImg5(),putImg6()">
     <header>
       <h1>Whatab</h1>
+      <p>test</p>
       <div id="modal">
         <button type="button" @click="openModal" class="manual-button"><i class="fas fa-book fa-lg"></i><br>Manual</button>
         <open-modal v-show="showContent" @close="showContent = false"></open-modal>
