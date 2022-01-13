@@ -1,433 +1,457 @@
 /*共通部分
 -------------------------------------*/
-  body{
-    font-family: 'Segoe UI','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN','YuGothic Medium', '游ゴシック Medium', sans-serif;
-    background-color: #F5F5F5;
-  }
+body{
+  font-family: 'Segoe UI','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN','YuGothic Medium', '游ゴシック Medium', sans-serif;
+  background-color: #F5F5F5;
+}
 
-  .hidden{
-    font-size: 0px;
-  }
-  /*検索結果*/
-  .chord{
-    font-size: 16px;
-    /*color:#EC5A1B;*/
-    font-weight:600;
-    padding-left: 20px;
-  }
-
+.hidden{
+  font-size: 0px;
+}
+/*検索結果*/
+.chord{
+  font-size: 16px;
+  /*color:#EC5A1B;*/
+  font-weight:600;
+  padding-left: 20px;
+}
+li{
+  list-style: none;
+}
 
 /*header
 -------------------------------------*/
-  header{
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
+header{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  h1{
-    padding-left: 10px;
-    margin: 0;
-    color:#6E8CD1;
-    font-size: 36px;
-    font-weight:700;
-  }
+h1{
+  padding-left: 10px;
+  margin: 0;
+  color:#6E8CD1;
+  font-size: 36px;
+  font-weight:700;
+}
 
-  #modal{
-    padding: 0;
-    margin: 0;
-  }
-
-
-  /*manual
-  ------------------------------*/
-  .manual-button{
-    margin-top:10px;
-    padding-right: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    color:#6E8CD1;
-  }
-
-  .content-space {
-    z-index:100;
-    width: 50%;
-    padding: 1em;
-    height:500px;
-    overflow: auto;
-  }
-
-  .overlay {
-    z-index:99;
-    position: fixed;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .manual{
-    background-color: #E4E4E4;
-    text-align: left;
-  }
-
-  .manual-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #4B4B4B;
-  }
-  .m-title{
-    background-color: #4B4B4B;
-    color:#F5F5F5;
-    height:40px;
-    padding-top:8px;
-    padding-left: 10px;
-  }
-
-  .m-title-mini{
-    font-size: 10px;
-  }
-
-  .bar{
-    height:22px;
-    margin: 10px;
-    background-color: #D1D1D1;
-    font-weight: bold;
-    font-size: 14px;
-    padding-left:10px;
-  }
-
-  .content{
-    font-size: 10px;
-    padding:0 10px;
-    line-height: 1.7;
-  }
-
-  .manual img{
-    width: 80%;
-    margin-left: 10%;
-  }
-
-  .function{
-    font-size: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 10px;
-  }
-
-  .function th{
-    background-color: #4B4B4B;
-    color:#F5F5F5;
-    padding-left: 5px;
-  }
-
-  .close-btn{
-    margin-right:  10px;
-    color: #F5F5F5;
-  }
-
-  .control{
-    background-color: #D1D1D1;
-    font-weight: bolder;
-    padding: 8px 20px 5px 5px;
-  }
-
-  .control-content{
-    border-top: 1px solid #707070;
-    border-bottom: 1px solid #707070;
-  }
-
-  .share{
-    display: flex;
-  }
-
-  .btn-icon{
-    padding-left: 10px;
-    padding-top: 10px;
-  }
-
-  /*neck------
-  --------------*/
-
-  .answer{
-    /*height:50px;*/
-  }
-  .neck{
-    height:100%;
-  }
-  .neck-wrapper{
-    position: relative;
-    margin:0 auto; /*中央よせ*/
-    width:800px; /*divの幅を決める*/
-    padding-top:42px;
-    text-align: center;
-  }
-  .table{
-    border-spacing: 0;
-  }
-  .absolute{
-    position: absolute;
-    top:0;
-    z-index: 0;
-    left:10.5%;
-    width:620px;
-    height:180px;
-    filter: contrast(95%);
-  }
-  .neck-mobile{
-    display:none;
-  }
-  .mute-button{
-    display: block;
-    position: absolute;
-    top:-4px;
-    left:83px;
+#modal{
+  padding: 0;
+  margin: 0;
+}
 
 
-    color:transparent;
+/*manual
+------------------------------*/
+.manual-button{
+  margin-top:10px;
+  padding-right: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color:#6E8CD1;
+}
 
-  }
+.content-space {
+  z-index:100;
+  width: 50%;
+  padding: 1em;
+  height:500px;
+  overflow: auto;
+}
+
+.overlay {
+  z-index:99;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manual{
+  background-color: #E4E4E4;
+  text-align: left;
+}
+
+.manual-header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #4B4B4B;
+}
+.m-title{
+  background-color: #4B4B4B;
+  color:#F5F5F5;
+  height:40px;
+  padding-top:8px;
+  padding-left: 10px;
+}
+
+.m-title-mini{
+  font-size: 10px;
+}
+
+.bar{
+  height:22px;
+  margin: 10px;
+  background-color: #D1D1D1;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left:10px;
+}
+
+.content{
+  font-size: 10px;
+  padding:0 10px;
+  line-height: 1.7;
+}
+
+.manual img{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.function{
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.function th{
+  background-color: #4B4B4B;
+  color:#F5F5F5;
+  padding-left: 5px;
+}
+
+.close-btn{
+  margin-right:  10px;
+  color: #F5F5F5;
+}
+
+.control{
+  background-color: #D1D1D1;
+  font-weight: bolder;
+  padding: 8px 20px 5px 5px;
+}
+
+.control-content{
+  border-top: 1px solid #707070;
+  border-bottom: 1px solid #707070;
+}
+
+.share{
+  display: flex;
+}
+
+.btn-icon{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+/*neck------
+--------------*/
+
+.answer{
+  /*height:50px;*/
+}
+.neck{
+  height:100%;
+}
+.neck-wrapper{
+  position: relative;
+  margin:0 auto; /*中央よせ*/
+  width:800px; /*divの幅を決める*/
+  padding-top:42px;
+  text-align: center;
+}
+.table{
+  border-spacing: 0;
+}
+.absolute{
+  position: absolute;
+  top:0;
+  z-index: 0;
+  left:10.5%;
+  width:620px;
+  height:180px;
+  filter: contrast(95%);
+}
+.neck-mobile{
+  display:none;
+}
+.mute-button{
+  display: block;
+  position: absolute;
+  top:-4px;
+  left:83px;
 
 
-  /*鍵盤
-  -----------------------------*/
-  .key{
-    height:100%;
-    display:flex;
-    margin: 20px auto 0 auto;
-    width:450px;
-    justify-content: space-between;
-    position: relative;
-  }
+  color:transparent;
 
-  .flet{
+}
 
-    opacity: 10;
-    margin: 0 auto;
-    width:300px; /*divの幅を決める*/
-   height:100px;
-    text-align: center;
-  }
 
-  .string{
-    position: absolute;
-    opacity: 3;
-    z-index: 5;
-    width:300px;
-    height: 100px;
-    left:0;
-    filter: contrast(93%) saturate(98%);
-  }
-  .piano{
-    position: absolute;
-    opacity:3;
-    z-index: 1;
-    width:300px;
-    height: 100px;
-    left:0;
-    filter: contrast(93%) saturate(98%);
-  }
+/*鍵盤
+-----------------------------*/
+.key{
+  height:100%;
+  display:flex;
+  margin: 20px auto 0 auto;
+  width:450px;
+  justify-content: space-between;
+  position: relative;
+}
 
-  .search{
-    width:130px;
-    margin: 0 auto;
-    padding-left: 20px;
+.flet{
 
-  }
-  .searchbtn{
-    border-style: none;
-    background-color: #EC5A1B;
-    color:#F5F5F5;
-    width:130px;
-    padding: 8px;
-    font-weight: bolder;
-    font-size: 23px;
-    border-radius: 100px;
-    cursor: pointer;
-  }
+  opacity: 10;
+  margin: 0 auto;
+  width:300px; /*divの幅を決める*/
+ height:100px;
+  text-align: center;
+}
+
+.string{
+  position: absolute;
+  opacity: 3;
+  z-index: 5;
+  width:300px;
+  height: 100px;
+  left:0;
+  filter: contrast(93%) saturate(98%);
+}
+.piano{
+  position: absolute;
+  opacity:3;
+  z-index: 1;
+  width:300px;
+  height: 100px;
+  left:0;
+  filter: contrast(93%) saturate(98%);
+}
+
+.search{
+  width:130px;
+  margin: 0 auto;
+  padding-left: 20px;
+
+}
+.searchbtn{
+  border-style: none;
+  background-color: #EC5A1B;
+  color:#F5F5F5;
+  width:130px;
+  padding: 8px;
+  font-weight: bolder;
+  font-size: 23px;
+  border-radius: 100px;
+  cursor: pointer;
+}
 
 
 
 /*ラジオボタンの装飾
 -------------------------------------*/
-  .my-radio {
-    position: relative;
-    /*display: block; /* 縦並びに */
-    width:22px;
-    height:25px;
-    cursor: pointer;
-    user-select: none;
-    z-index: 3;
-    display: inline-block;
-    text-align: center;
-    margin-right:20px;
-  }
+.my-radio {
+  position: relative;
+  /*display: block; /* 縦並びに */
+  width:22px;
+  height:25px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 3;
+  display: inline-block;
+  text-align: center;
+  margin-right:20px;
+}
 
-  /* inputは非表示にする */
-  .my-radio input {
-    display: none;
+/* inputは非表示にする */
+.my-radio input {
+  display: none;
 
-  }
-  /* 常に表示する枠線の円 */
-  .radio-mark {
-    position: absolute;
-    top: 0; /* 上からの位置 */
-    left: 0;
-    height: 22px; /* 大きさ */
-    width: 22px; /* 大きさ */
-    border: solid 0px #d4dae2; /* 線 */
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  /* 選択時に重ねる円 */
-  .radio-mark:after {
-    content: "";
-    position: absolute;
-    background: #6E8CD1; /* 色 */
-    border-radius: 50%;
-    top: 2px;
-    bottom: 2px;
-    left: 2px;
-    right: 2px;
-    opacity: 0; /* 透明にしておく */
-  }
-  /* 選択時に重ねた円の透明を解除 */
-  .my-radio input:checked + .radio-mark:after {
-    opacity: 1;
-  }
+}
+/* 常に表示する枠線の円 */
+.radio-mark {
+  position: absolute;
+  top: 0; /* 上からの位置 */
+  left: 0;
+  height: 22px; /* 大きさ */
+  width: 22px; /* 大きさ */
+  border: solid 0px #d4dae2; /* 線 */
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+/* 選択時に重ねる円 */
+.radio-mark:after {
+  content: "";
+  position: absolute;
+  background: #6E8CD1; /* 色 */
+  border-radius: 50%;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  opacity: 0; /* 透明にしておく */
+}
+/* 選択時に重ねた円の透明を解除 */
+.my-radio input:checked + .radio-mark:after {
+  opacity: 1;
+}
 
-  /*シェアボタン
-  -------------*/
+/*シェアボタン
+-------------*/
 
 .sosyal {
-  margin: 50px auto;
+margin: 50px auto;
 }
 
 .my-gray{color:#F5F5F5;}
 .facebook{
-  display: block;
+display: block;
 }
 
 .twitter{
-  display: block;
+display: block;
+}
+
+/*Recent-shows
+-------------------------*/
+.show-button{
+width:300px;
+}
+.recent-shows li {
+margin-bottom: 5px;
+}
+.recent-shows form :hover{
+border: 2px solid #EC5A1B;
+border-radius: 5px;
+}
+.recent-shows{
+margin:0 auto;
+width:300px;
+text-align: center;
+}
+.shows-title{
+color:#6E8CD1;
+margin-bottom: 20px;
 }
 
 /*スマホ
 -------------------------------*/
 @media (max-width:700px) {
 .conteinar{
-  position: relative;
-  margin: 0;
-  padding: 0;
+position: relative;
+margin: 0;
+padding: 0;
 }
 body{
-  margin: 0;
-  padding:0;
-  text-align: center;
+margin: 0;
+padding:0;
+text-align: center;
 }
 
 /*header
 -----------------*/
 header img{
-  width:100px;
+width:100px;
 }
 header{
-  border-bottom: 3px solid #EC5A1B;
-  background-color: #EC5A1B;
-  margin:0;
+border-bottom: 3px solid #EC5A1B;
+background-color: #EC5A1B;
+margin:0;
 }
 h1{
-  color:#F5F5F5;
+color:#F5F5F5;
 }
 
 .content-space{
-  width:90%;
+width:90%;
 }
 
 .manual-button{
-  color:#F5F5F5;
+color:#F5F5F5;
 }
 /*headerより下
 -----------------*/
 .neck-wrapper{
-  display:flex;
-  align-items: stretch;/*ラジオボタンを縦にする*/
-  position: relative;
- justify-content: center;/*ラジオボタンを中央よせ*/
- width:200px;/*divの幅を決める*/
- text-align: center;
- height:750px;
+display:flex;
+align-items: stretch;/*ラジオボタンを縦にする*/
+position: relative;
+justify-content: center;/*ラジオボタンを中央よせ*/
+width:200px;/*divの幅を決める*/
+text-align: center;
+height:750px;
 }
 .absolute{
-  display: none;
-  position: absolute;
+display: none;
+position: absolute;
 }
 .neck-mobile{
-  display: block;
-  position: absolute;
-  top:20px;
-  z-index: 0;
-  width:200px;
-  left:13%;
-  height:790px;
-  margin-top:7px;
-  filter: contrast(95%);
+display: block;
+position: absolute;
+top:20px;
+z-index: 0;
+width:200px;
+left:13%;
+height:790px;
+margin-top:7px;
+filter: contrast(95%);
 }
 .neck{
-  padding-bottom: 100px;
+padding-bottom: 50px;
 }
 .mute-button{
-  display: block;
-  position: absolute;
-  top:28px;
-  left:190px;
-  padding: 7px;
-  transform: rotate(90deg);
-  color:transparent;
+display: block;
+position: absolute;
+top:28px;
+left:190px;
+padding: 7px;
+transform: rotate(90deg);
+color:transparent;
 
 }
 .muteSet{
-  display: block;
-  z-index:100;
+display: block;
+z-index:100;
 
 }
 
 /*ラジオボタンの装飾
 ----------------------*/
 .radio-mark{
-  height: 26px; /* 大きさ */
-  width: 26px;
+height: 26px; /* 大きさ */
+width: 26px;
 }
 .my-radio{
-  display: block;
-  position: relative;
-  padding-left: 28px;
-  width:0;
-  height:26px;
-  margin-right: 0px;
-  margin-bottom: 34px;
+display: block;
+position: relative;
+padding-left: 28px;
+width:0;
+height:26px;
+margin-right: 0px;
+margin-bottom: 34px;
 }
 
 /*鍵盤
 --------------*/
 .key{
- width:100%;
- position:fixed;
- bottom:0px;
- height:90px;
- background-color: #EC5A1B;
- padding-top:10px;
- margin: 0 auto;
- z-index: 10;
+width:100%;
+position:fixed;
+bottom:0px;
+height:90px;
+background-color: #EC5A1B;
+padding-top:10px;
+margin: 0 auto;
+z-index: 10;
 
 }
 .piano-wrapper{
 position: relative;
-  height:70px;
-  margin: 0 auto;
+height:70px;
+margin: 0 auto;
 }
 .flet{
 width:200px;
@@ -437,8 +461,8 @@ background-color: #EC5A1B;
 
 }
 .piano{
- width:200px;
- height:70px;
+width:200px;
+height:70px;
 position: absolute;
 }
 .string{
@@ -447,8 +471,8 @@ height:70px;
 position: absolute;
 }
 .search{
-  width:130px;
-  padding-left: 0;
+width:130px;
+padding-left: 0;
 margin:0 auto;
 border-radius: 40px;
 }
@@ -459,7 +483,7 @@ color:#EC5A1B;
 margin-top: 10px
 }
 .chord{
-  display: inline-block;
+display: inline-block;
 font-size: 14px;
 overflow-wrap:break-word;
 width:300px;
@@ -468,37 +492,42 @@ line-height: 20px;
 }
 
 .answer{
-  border-bottom:2px solid #EC5A1B;
-  text-align: center;
+border-bottom:2px solid #EC5A1B;
+text-align: center;
 }
 .compact{
-  position: fixed;
-  top:0;
-  z-index: 10;
-  width:100%;
-  margin:0 auto;
-  background-color: #F5F5F5;
+position: fixed;
+top:0;
+z-index: 10;
+width:100%;
+margin:0 auto;
+background-color: #F5F5F5;
 }
 
+/*Recent-shows
+-------------------------*/
+.recent-shows{
+padding-bottom: 100px;
+}
 
 /*弦の順番を左から6→1に変える
 ----------------------------*/
 .string1{
-  order:6;
+order:6;
 }
 .string2{
-  order:5;
+order:5;
 }
 .string3{
-  order:4;
+order:4;
 }
 .string4{
-  order:3;
+order:3;
 }
 .string5{
-  order:2;
+order:2;
 }
 .string6{
-  order:1;
+order:1;
 }
 }

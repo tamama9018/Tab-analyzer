@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head>
-
     <meta charset="utf-8">
     <title>Whatab</title>
     <script src="pianotest.js" charset="utf-8"></script>
@@ -18,18 +17,19 @@
         <button type="button" @click="openModal" class="manual-button"><i class="fas fa-book fa-lg"></i><br>Manual</button>
         <open-modal v-show="showContent" @close="showContent = false"></open-modal>
       </div>
-   </header>
-   <div class="conteinar">
+    </header>
+    <div class="conteinar">
      <div class="answer" id="app"  v-bind:class="{compact: scrollY > 50}">
        <?php
+        session_start();
          foreach (['string1', 'string2', 'string3', 'string4', 'string5', 'string6'] as $string){
              $strings[$string] = (int)filter_input(INPUT_POST, $string);
-         }
-         $result = array_diff($strings, array('101','102','103','104','105','106'));
-         $result = array_values($result);
+         }     
+         $cutMute = array_diff($strings, array('101','102','103','104','105','106'));
+         $cutMute = array_values($cutMute);
          $space = " ";
-         $r =implode($space,$result);
-         $command = "python src/main.py ${r}";
+         $sendValue =implode($space,$cutMute);
+         $command = "python src/main.py ${sendValue}";
          putenv("PYTHONUTF8=1");
          exec($command, $output);
          foreach ($output as $o) {
@@ -45,7 +45,6 @@
           }
         ?>
      </div>
-
    <div class="neck">
     <form class="neck" action="index.php" method="post">
     <div class="neck-wrapper">
@@ -201,6 +200,7 @@
               <a href="index.php" onclick="muteSet()" class="mute-button">MUTE</a>
             </div>
     </div>
+    
   </div>
 
   <div class="key">
@@ -217,8 +217,46 @@
       </div>
     </div>
     <div class="search">
-     <button type="submit" class="searchbtn">What?</button>
+     <button type="submit" class="searchbtn" name="recent-show" value="save">What?</button>
     </div>
+    </form>
+  </div>
+  <?php 
+  if(isset($_POST['recent-show'])) {
+    if(!isset($_SESSION['code'])){
+      $_SESSION['code'] = [];
+    }
+    if($_POST['recent-show'] === 'save') {
+       array_push($strings,$output);
+       array_unshift($_SESSION['code'], $strings);
+      }
+    } 
+  ?>
+  <div class="recent-shows">
+    <h2 class="shows-title">Recent Shows</h2>
+    <ul>
+      <?php for($i = 0; $i < count($_SESSION['code']); $i++):?>
+              <?php if($i >= 10) break;?>
+              <li>
+                  <form action="index.php" method="POST">
+                  <input type="hidden" name="id" value="<?php echo $i;?>">
+                  <input type="hidden" name="string1" value="<?php echo $_SESSION['code'][$i]["string1"];?>">
+                  <input type="hidden" name="string2" value="<?php echo $_SESSION['code'][$i]["string2"];?>">
+                  <input type="hidden" name="string3" value="<?php echo $_SESSION['code'][$i]["string3"];?>">
+                  <input type="hidden" name="string4" value="<?php echo $_SESSION['code'][$i]["string4"];?>">
+                  <input type="hidden" name="string5" value="<?php echo $_SESSION['code'][$i]["string5"];?>">
+                  <input type="hidden" name="string6" value="<?php echo $_SESSION['code'][$i]["string6"];?>">
+                  <button type="submit" name="type" value="show" class="show-button">
+                  <?php 
+                    $buttonName = str_replace('[',' ',$_SESSION['code'][$i][0][0]);
+                    $buttonName = str_replace(']',' ',$buttonName);
+                    $buttonName = str_replace("'",'',$buttonName);
+                    echo htmlspecialchars($buttonName, ENT_QUOTES, 'UTF-8'); ?>
+                  </button>
+                  </form>
+              </li>
+      <?php endfor; ?>
+    </ul>
   </div>
 </div>
 </form>
