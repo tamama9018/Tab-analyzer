@@ -233,6 +233,7 @@
     } 
   ?>
   <div class="recent-shows">
+    <h2 class="shows-title">Recent Shows</h2>
     <ul>
       <?php for($i = 0; $i < count($_SESSION['code']); $i++):?>
               <?php if($i >= 10) break;?>
@@ -245,7 +246,7 @@
                   <input type="hidden" name="string4" value="<?php echo $_SESSION['code'][$i]["string4"];?>">
                   <input type="hidden" name="string5" value="<?php echo $_SESSION['code'][$i]["string5"];?>">
                   <input type="hidden" name="string6" value="<?php echo $_SESSION['code'][$i]["string6"];?>">
-                  <button type="submit" name="type" value="show">
+                  <button type="submit" name="type" value="show" class="show-button">
                   <?php 
                     $buttonName = str_replace('[',' ',$_SESSION['code'][$i][0][0]);
                     $buttonName = str_replace(']',' ',$buttonName);
