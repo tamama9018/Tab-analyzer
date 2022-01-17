@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Whatab</title>
-    <script src="pianotest.js" charset="utf-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="icon" href="./images/favicon.ico">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="pianotest.js" charset="utf-8"></script>
   </head>
   <body onload="putImg1(),putImg2(),putImg3(),putImg4(),putImg5(),putImg6()">
     <header>
@@ -235,221 +235,38 @@
   <div class="recent-shows">
     <h2 class="shows-title">Recent Shows</h2>
     <ul>
-      <?php for($i = 0; $i < count($_SESSION['code']); $i++):?>
-              <?php if($i >= 10) break;?>
-              <li>
-                  <form action="index.php" method="POST">
-                  <input type="hidden" name="id" value="<?php echo $i;?>">
-                  <input type="hidden" name="string1" value="<?php echo $_SESSION['code'][$i]["string1"];?>">
-                  <input type="hidden" name="string2" value="<?php echo $_SESSION['code'][$i]["string2"];?>">
-                  <input type="hidden" name="string3" value="<?php echo $_SESSION['code'][$i]["string3"];?>">
-                  <input type="hidden" name="string4" value="<?php echo $_SESSION['code'][$i]["string4"];?>">
-                  <input type="hidden" name="string5" value="<?php echo $_SESSION['code'][$i]["string5"];?>">
-                  <input type="hidden" name="string6" value="<?php echo $_SESSION['code'][$i]["string6"];?>">
-                  <button type="submit" name="type" value="show" class="show-button">
-                  <?php 
-                    $buttonName = str_replace('[',' ',$_SESSION['code'][$i][0][0]);
-                    $buttonName = str_replace(']',' ',$buttonName);
-                    $buttonName = str_replace("'",'',$buttonName);
-                    echo htmlspecialchars($buttonName, ENT_QUOTES, 'UTF-8'); ?>
-                  </button>
-                  </form>
-              </li>
-      <?php endfor; ?>
+      <?php if(isset($_SESSION['code'])): ?>
+        <?php for($i = 0; $i < count($_SESSION['code']); $i++):?>
+                <?php if($i >= 10) break;?>
+                <li>
+                    <form action="index.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $i;?>">
+                    <input type="hidden" name="string1" value="<?php echo $_SESSION['code'][$i]["string1"];?>">
+                    <input type="hidden" name="string2" value="<?php echo $_SESSION['code'][$i]["string2"];?>">
+                    <input type="hidden" name="string3" value="<?php echo $_SESSION['code'][$i]["string3"];?>">
+                    <input type="hidden" name="string4" value="<?php echo $_SESSION['code'][$i]["string4"];?>">
+                    <input type="hidden" name="string5" value="<?php echo $_SESSION['code'][$i]["string5"];?>">
+                    <input type="hidden" name="string6" value="<?php echo $_SESSION['code'][$i]["string6"];?>">
+                    <button type="submit" name="type" value="show" class="show-button">
+                    <?php 
+                      $buttonName = str_replace('[',' ',$_SESSION['code'][$i][0][0]);
+                      $buttonName = str_replace(']',' ',$buttonName);
+                      $buttonName = str_replace("'",'',$buttonName);
+                      echo htmlspecialchars($buttonName, ENT_QUOTES, 'UTF-8'); ?>
+                    </button>
+                    </form>
+                </li>
+        <?php endfor; ?>
+      <?php endif; ?>
     </ul>
   </div>
 </div>
 </form>
+   
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script type="text/javascript">
-    function putImg1(){
-        radio = document.getElementsByName('string1')
-        if(radio[1].checked){
-          document.area1.src = "images/e.png";
-        }else if (radio[2].checked) {
-          document.area1.src = "images/f.png";
-        }else if (radio[3].checked) {
-          document.area1.src = "images/fs.png";
-        }else if (radio[4].checked) {
-          document.area1.src = "images/g.png";
-        }else if (radio[5].checked) {
-          document.area1.src = "images/gs.png";
-        }else if (radio[6].checked) {
-          document.area1.src = "images/a.png";
-        }else if (radio[7].checked) {
-          document.area1.src = "images/as.png";
-        }else if (radio[8].checked) {
-          document.area1.src = "images/b.png";
-        }else if (radio[9].checked) {
-          document.area1.src = "images/c.png";
-        }else if (radio[10].checked) {
-          document.area1.src = "images/cs.png";
-        }else if (radio[11].checked) {
-          document.area1.src = "images/d.png";
-        }else if (radio[12].checked) {
-          document.area1.src = "images/ds.png";
-        }else if (radio[0].checked){
-          document.area1.src = "images/mute.png";
-        }
-      }
-      //string2
-      function putImg2(){
-        radio = document.getElementsByName('string2')
-        if(radio[1].checked){
-          document.area2.src = "images/b.png";
-        }else if (radio[2].checked) {
-          document.area2.src = "images/c.png";
-        }else if (radio[3].checked) {
-          document.area2.src = "images/cs.png";
-        }else if (radio[4].checked) {
-          document.area2.src = "images/d.png";
-        }else if (radio[5].checked) {
-          document.area2.src = "images/ds.png";
-        }else if (radio[6].checked) {
-          document.area2.src = "images/e.png";
-        }else if (radio[7].checked) {
-          document.area2.src = "images/f.png";
-        }else if (radio[8].checked) {
-          document.area2.src = "images/fs.png";
-        }else if (radio[9].checked) {
-          document.area2.src = "images/g.png";
-        }else if (radio[10].checked) {
-          document.area2.src = "images/gs.png";
-        }else if (radio[11].checked) {
-          document.area2.src = "images/a.png";
-        }else if (radio[12].checked) {
-          document.area2.src = "images/as.png";
-        }else if (radio[0].checked){
-          document.area2.src = "images/mute.png";
-        }
-      }
-      //string3
-      function putImg3(){
-        radio = document.getElementsByName('string3')
-        if(radio[1].checked){
-          document.area3.src = "images/g.png";
-        }else if (radio[2].checked) {
-          document.area3.src = "images/gs.png";
-        }else if (radio[3].checked) {
-          document.area3.src = "images/a.png";
-        }else if (radio[4].checked) {
-          document.area3.src = "images/as.png";
-        }else if (radio[5].checked) {
-          document.area3.src = "images/b.png";
-        }else if (radio[6].checked) {
-          document.area3.src = "images/c.png";
-        }else if (radio[7].checked) {
-          document.area3.src = "images/cs.png";
-        }else if (radio[8].checked) {
-          document.area3.src = "images/d.png";
-        }else if (radio[9].checked) {
-          document.area3.src = "images/ds.png";
-        }else if (radio[10].checked) {
-          document.area3.src = "images/e.png";
-        }else if (radio[11].checked) {
-          document.area3.src = "images/f.png";
-        }else if (radio[12].checked) {
-          document.area3.src = "images/fs.png";
-        }else if (radio[0].checked){
-          document.area3.src = "images/mute.png";
-        }
-      }
-      //string4
-      function putImg4(){
-        radio = document.getElementsByName('string4')
-        if(radio[1].checked){
-          document.area4.src = "images/d.png";
-        }else if (radio[2].checked) {
-          document.area4.src = "images/ds.png";
-        }else if (radio[3].checked) {
-          document.area4.src = "images/e.png";
-        }else if (radio[4].checked) {
-          document.area4.src = "images/f.png";
-        }else if (radio[5].checked) {
-          document.area4.src = "images/fs.png";
-        }else if (radio[6].checked) {
-          document.area4.src = "images/g.png";
-        }else if (radio[7].checked) {
-          document.area4.src = "images/gs.png";
-        }else if (radio[8].checked) {
-          document.area4.src = "images/a.png";
-        }else if (radio[9].checked) {
-          document.area4.src = "images/as.png";
-        }else if (radio[10].checked) {
-          document.area4.src = "images/b.png";
-        }else if (radio[11].checked) {
-          document.area4.src = "images/c.png";
-        }else if (radio[12].checked) {
-          document.area4.src = "images/cs.png";
-        }else if (radio[0].checked){
-          document.area4.src = "images/mute.png";
-        }
-      }
-      //string5
-      function putImg5(){
-        radio = document.getElementsByName('string5')
-        if(radio[1].checked){
-          document.area5.src = "images/a.png";
-        }else if (radio[2].checked) {
-          document.area5.src = "images/as.png";
-        }else if (radio[3].checked) {
-          document.area5.src = "images/b.png";
-        }else if (radio[4].checked) {
-          document.area5.src = "images/c.png";
-        }else if (radio[5].checked) {
-          document.area5.src = "images/cs.png";
-        }else if (radio[6].checked) {
-          document.area5.src = "images/d.png";
-        }else if (radio[7].checked) {
-          document.area5.src = "images/ds.png";
-        }else if (radio[8].checked) {
-          document.area5.src = "images/e.png";
-        }else if (radio[9].checked) {
-          document.area5.src = "images/f.png";
-        }else if (radio[10].checked) {
-          document.area5.src = "images/fs.png";
-        }else if (radio[11].checked) {
-          document.area5.src = "images/g.png";
-        }else if (radio[12].checked) {
-          document.area5.src = "images/gs.png";
-        }else if (radio[0].checked){
-          document.area5.src = "images/mute.png";
-        }
-      }
-      //string6
-      function putImg6(){
-        radio = document.getElementsByName('string6')
-        if(radio[1].checked){
-          document.area6.src = "images/e.png";
-        }else if (radio[2].checked) {
-          document.area6.src = "images/f.png";
-        }else if (radio[3].checked) {
-          document.area6.src = "images/fs.png";
-        }else if (radio[4].checked) {
-          document.area6.src = "images/g.png";
-        }else if (radio[5].checked) {
-          document.area6.src = "images/gs.png";
-        }else if (radio[6].checked) {
-          document.area6.src = "images/a.png";
-        }else if (radio[7].checked) {
-          document.area6.src = "images/as.png";
-        }else if (radio[8].checked) {
-          document.area6.src = "images/b.png";
-        }else if (radio[9].checked) {
-          document.area6.src = "images/c.png";
-        }else if (radio[10].checked) {
-          document.area6.src = "images/cs.png";
-        }else if (radio[11].checked) {
-          document.area6.src = "images/d.png";
-        }else if (radio[12].checked) {
-          document.area6.src = "images/ds.png";
-        }else if (radio[0].checked){
-          document.area6.src = "images/mute.png";
-        }
-      }
-
       $(function muteSet(){
         var nowchecked = $('input[name="string1"]:checked').val();
         $('input[name="string1"]').click(function(){
@@ -561,25 +378,9 @@
       }
     })
 
-    var Modal = new Vue({
-      el: '#modal',
-      data(){
-        return {
-          showContent: false,
-        }
-      },
-      methods: {
-        openModal: function(){
-          this.showContent = true;
-        },
-        closeModal: function(){
-          this.showContent = false;
-        }
-      }
-    })
-
+  
     Vue.component('open-modal', {
-      template:`
+      template : `
       <div class="overlay">
         <div class="content-space">
           <div class="manual">
@@ -609,7 +410,7 @@
                   <td class="control">②Double-Click</td>
                   <td class="control-content">選択済みのポジションをクリックすると、そのマークがMUTEの位置に戻ります。</td>
                 </tr>
-                <tr>　
+                <tr>
                   <td class="control">③Keyboard</td>
                   <td class="control-content">フレットを選択すると、その音がピアノのどの位置に当たるかを表示します。※オクターブには対応していません。</td>
                 </tr>
@@ -627,8 +428,25 @@
           </div>
         </div>
       </div>
-      `,
-    });
+      `
+    })
+
+    var Modal = new Vue({
+      el: '#modal',
+      data(){
+        return {
+          showContent: false,
+        }
+      },
+      methods: {
+        openModal: function(){
+          this.showContent = true;
+        },
+        closeModal: function(){
+          this.showContent = false;
+        }
+      }
+    })
     </script>
   </body>
 </html>
