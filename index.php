@@ -37,10 +37,10 @@
              $o = str_replace('[',' ',$o);
              $o = str_replace(']',' ',$o);
              $o = str_replace("'",'',$o);
-             if($o== 0){
+             if($o == 0){
                  echo " ";
              }else{
-                 echo "<span class='chord'>{$o}</span>";
+                 echo "<span class='chord'>". htmlspecialchars($o, ENT_QUOTES, 'UTF-8') . "</span>";
              }
           }
         ?>
