@@ -226,7 +226,7 @@
     if(!isset($_SESSION['code'])){
       $_SESSION['code'] = [];
     }
-    if($_POST['recent-show'] === 'save') {
+    if($_POST['recent-show'] === 'save' && !empty($output)) {
        array_push($strings,$output);
        array_unshift($_SESSION['code'], $strings);
       }
