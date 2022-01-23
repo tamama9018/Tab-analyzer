@@ -4,5 +4,9 @@ def two_code(keys):
     root = keys[0]
     top  = keys[1]
 
+    if top - root == 4:
+        return number_to_char(root) + '(omit5)'
+        
     if top - root == 7:
-        return number_to_char(root) + '5'
+        return number_to_char(root) + '(omit3)'
+
