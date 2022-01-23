@@ -1,4 +1,6 @@
 from key_name_matching import number_to_char
+from two_code import two_code
+
 
 
 def three_code(keys):
@@ -6,6 +8,8 @@ def three_code(keys):
     root = keys[0]
     mid  = keys[1]
     top  = keys[2]
+
+    root_codename = two_code(keys[:2])
     
     if mid-root == 4 and top-mid == 3:
         codename = number_to_char(root)
@@ -30,7 +34,6 @@ def three_code(keys):
     if mid-root == 5 and top-mid == 2:
         codename = number_to_char(root) + 'sus4'
         return codename
-
 
     return keys
 
