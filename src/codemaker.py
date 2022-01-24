@@ -1,4 +1,3 @@
-from two_code import two_code
 from three_code import three_code
 from four_code import four_code
 from five_code import five_code
@@ -41,7 +40,9 @@ def codemaker(keys):
             codename = three_code(ks)
             if type(codename) is str:
                 codenames += [codename]
-            else:
+                
+        if not codenames:
+            for ks in rotate(keys):
                 omit = ks + [min(ks)+7]
                 omit.sort()
                 omit_code = four_code(omit)
@@ -58,7 +59,9 @@ def codemaker(keys):
             codename = four_code(ks)
             if type(codename) is str:
                 codenames += [codename]
-            else: 
+                
+        if not codenames:
+            for ks in rotate(keys):
                 omit = ks + [min(ks)+7]
                 omit.sort()
                 omit_code = five_code(omit)
@@ -80,7 +83,9 @@ def codemaker(keys):
             codename = five_code(ks)
             if type(codename) is str:
                 codenames += [codename]
-            else: 
+                
+        if not codenames:
+            for ks in rotate(keys):
                 omit = ks + [min(ks)+7]
                 omit.sort()
                 omit_code = six_code(omit)
@@ -107,8 +112,19 @@ def codemaker(keys):
             codenames += [f'{root_codename}/{number_to_char(root)}']   
 
     codenames = sorted(list(set(codenames)))
+    codenames = sorted(codenames, key=lambda x:(len(x)))
     codenames = code_rename(codenames)
-
+    # codenames = codename_priority(codenames, root)
     return codenames
 
 
+def codename_priority(codenames, root):
+    root_code, not_root_code = [], []
+    # root音を最初に表示
+    for i, codename in enumerate(codenames):
+        if codename[0] == number_to_char(root)[0]:
+            root_code.append(codename)
+        else:
+            not_root_code.append(codename)
+    return root_code + not_root_code
+            
