@@ -8,13 +8,7 @@ body{
 .hidden{
   font-size: 0px;
 }
-/*検索結果*/
-.chord{
-  font-size: 16px;
-  /*color:#EC5A1B;*/
-  font-weight:600;
-  padding-left: 20px;
-}
+
 li{
   list-style: none;
 }
@@ -153,9 +147,16 @@ h1{
 
 /*neck------
 --------------*/
-
-.answer{
-  /*height:50px;*/
+/*検索結果*/
+.chord-pc{
+  display: block;
+  font-size: 16px;
+  /*color:#EC5A1B;*/
+  font-weight:600;
+  padding-left: 20px;
+}
+.chord-sp{
+  display: none;
 }
 .neck{
   height:100%;
@@ -200,9 +201,10 @@ h1{
   height:100%;
   display:flex;
   margin: 20px auto 0 auto;
-  width:450px;
+  width:500px;
   justify-content: space-between;
   position: relative;
+  padding-left: 20px;
 }
 
 .flet{
@@ -220,7 +222,7 @@ h1{
   z-index: 5;
   width:300px;
   height: 100px;
-  left:0;
+  left:20px;
   filter: contrast(93%) saturate(98%);
 }
 .piano{
@@ -229,17 +231,18 @@ h1{
   z-index: 1;
   width:300px;
   height: 100px;
-  left:0;
+  left:20px;
   filter: contrast(93%) saturate(98%);
 }
 
 .search{
-  width:130px;
+  width:200px;
   margin: 0 auto;
   padding-left: 20px;
 
 }
 .searchbtn{
+  display: block;
   border-style: none;
   background-color: #EC5A1B;
   color:#F5F5F5;
@@ -249,6 +252,7 @@ h1{
   font-size: 23px;
   border-radius: 100px;
   cursor: pointer;
+  margin:0 auto;
 }
 
 
@@ -323,14 +327,14 @@ display: block;
 width:300px;
 }
 .recent-shows li {
-margin-bottom: 5px;
+margin-bottom: 10px;
 }
 .recent-shows form :hover{
 border: 2px solid #EC5A1B;
 border-radius: 5px;
 }
 .recent-shows{
-margin:0 auto;
+margin:50px auto;
 width:300px;
 text-align: center;
 }
@@ -376,6 +380,17 @@ color:#F5F5F5;
 }
 /*headerより下
 -----------------*/
+/*検索結果*/
+.chord-sp{
+display: block;
+font-size: 16px;
+/*color:#EC5A1B;*/
+font-weight:600;
+padding-left: 20px;
+}
+.chord-pc{
+display: none;
+}
 .neck-wrapper{
 display:flex;
 align-items: stretch;/*ラジオボタンを縦にする*/
@@ -464,11 +479,13 @@ background-color: #EC5A1B;
 width:200px;
 height:70px;
 position: absolute;
+left:0;
 }
 .string{
 width:200px;
 height:70px;
 position: absolute;
+left:0;
 }
 .search{
 width:130px;
