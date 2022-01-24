@@ -40,7 +40,7 @@
              if($o == 0){
                  echo " ";
              }else{
-                 echo "<span class='chord'>". htmlspecialchars($o, ENT_QUOTES, 'UTF-8') . "</span>";
+                 echo "<span class='chord-sp'>". htmlspecialchars($o, ENT_QUOTES, 'UTF-8') . "</span>";
              }
           }
         ?>
@@ -218,6 +218,19 @@
     </div>
     <div class="search">
      <button type="submit" class="searchbtn" name="recent-show" value="save">What?</button>
+     <?php 
+       foreach ($output as $o) {
+          // code...
+             $o = str_replace('[',' ',$o);
+             $o = str_replace(']',' ',$o);
+             $o = str_replace("'",'',$o);
+             if($o == 0){
+                 echo " ";
+             }else{
+                 echo "<span class='chord-pc'>". htmlspecialchars($o, ENT_QUOTES, 'UTF-8') . "</span>";
+             }
+          } 
+      ?>
     </div>
     </form>
   </div>
