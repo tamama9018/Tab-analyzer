@@ -112,8 +112,8 @@ def codemaker(keys):
             codenames += [f'{root_codename}/{number_to_char(root)}']   
 
     codenames = sorted(list(set(codenames)))
-    codenames = sorted(codenames, key=lambda x:(len(x)))
     codenames = code_rename(codenames)
+    codenames = sorted(codenames, key=lambda x:(len(x)))
     # codenames = codename_priority(codenames, root)
     return codenames
 
