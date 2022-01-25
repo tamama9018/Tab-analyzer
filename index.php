@@ -218,7 +218,12 @@
     </div>
     <div class="search">
      <button type="submit" class="searchbtn" name="recent-show" value="save">What?</button>
-     <?php 
+     
+    </div>
+    </form>
+  </div>
+  <div class="chord">
+    <?php 
        foreach ($output as $o) {
           // code...
              $o = str_replace('[',' ',$o);
@@ -232,8 +237,6 @@
           } 
       ?>
     </div>
-    </form>
-  </div>
   <?php 
   if(isset($_POST['recent-show'])) {
     if(!isset($_SESSION['code'])){
