@@ -148,6 +148,13 @@ h1{
 /*neck------
 --------------*/
 /*検索結果*/
+.chord{
+  height:50px;
+  padding-top:30px;
+  margin:0 auto;
+  width:400px;
+  text-align: center;
+}
 .chord-pc{
   display: block;
   font-size: 16px;
