@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Whatab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="S4oVSJCc5VkizPUH_dFW-TpawnGU6eRivGP8zRZSnK0" />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="icon" href="./images/favicon.ico">
