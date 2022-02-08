@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Whatab</title>
+    <meta name="description" content="ギターのコードフォームからコード名を検索できます。ギタリスト、DTMerに対して最適なガジェットです。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="S4oVSJCc5VkizPUH_dFW-TpawnGU6eRivGP8zRZSnK0" />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
